@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cães para Apadrinhamento - Abrigo de Seu Alberto</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="imagens/Logo-Abrido.de.Seu.Alberto1.jpg" alt="Logo Abrigo de Seu Alberto" class="logo-img">
+                <span>Abrigo de Seu Alberto</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="adocao.html">Adoção</a></li>
+                <li><a href="apadrinhamento.html" class="active">Apadrinhamento</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- TÍTULO DA PÁGINA -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Cães para Apadrinhamento</h1>
+            <p>Escolha um cão para apadrinhar e faça parte da história dele</p>
+        </div>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="filtros">
+        <div class="container">
+            <div class="filtros-container">
+                <select id="filtro-porte">
+                    <option value="">Todos os portes</option>
+                    <option value="pequeno">Pequeno</option>
+                    <option value="medio">Médio</option>
+                    <option value="grande">Grande</option>
+                </select>
+                <select id="filtro-idade">
+                    <option value="">Todas as idades</option>
+                    <option value="filhote">Filhote (até 1 ano)</option>
+                    <option value="jovem">Jovem (1 a 3 anos)</option>
+                    <option value="adulto">Adulto (3 a 7 anos)</option>
+                    <option value="idoso">Idoso (7+ anos)</option>
+                </select>
+                <select id="filtro-sexo">
+                    <option value="">Todos os sexos</option>
+                    <option value="macho">Macho</option>
+                    <option value="femea">Fêmea</option>
+                </select>
+                <button id="limpar-filtros" class="btn btn-secondary">Limpar filtros</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- LISTA DE CÃES PARA APADRINHAMENTO -->
+    <section class="caes-lista">
+        <div class="container">
+            <div class="cards-grid" id="todos-caes-apadrinhamento">
+                <!-- Cards serão carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE APADRINHAMENTO -->
+    <div id="modal-apadrinhamento" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Formulário de Apadrinhamento</h2>
+            <p>Você escolheu apadrinhar o <span id="cao-nome-apadrinhamento"></span></p>
+            
+            <div class="planos-apadrinhamento">
+                <h3>Escolha um plano:</h3>
+                <div class="planos-grid">
+                    <div class="plano-card">
+                        <h4>Básico</h4>
+                        <p class="plano-valor">R$ 30/mês</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Ajuda com ração</li>
+                            <li><i class="fas fa-check"></i> Foto do cão</li>
+                            <li><i class="fas fa-check"></i> Certificado digital</li>
+                        </ul>
+                    </div>
+                    <div class="plano-card">
+                        <h4>Intermediário</h4>
+                        <p class="plano-valor">R$ 70/mês</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Tudo do básico</li>
+                            <li><i class="fas fa-check"></i> Medicamentos</li>
+                            <li><i class="fas fa-check"></i> Vídeos mensais</li>
+                            <li><i class="fas fa-check"></i> Nome no perfil</li>
+                        </ul>
+                    </div>
+                    <div class="plano-card">
+                        <h4>Completo</h4>
+                        <p class="plano-valor">R$ 150/mês</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Cobertura total</li>
+                            <li><i class="fas fa-check"></i> Visitas agendadas</li>
+                            <li><i class="fas fa-check"></i> Fotos exclusivas</li>
+                            <li><i class="fas fa-check"></i> Presente personalizado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <form id="form-apadrinhamento">
+                <input type="hidden" id="cao-id-apadrinhamento">
+                
+                <div class="form-group">
+                    <label for="nome-apadrinhamento">Seu nome completo:</label>
+                    <input type="text" id="nome-apadrinhamento" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email-apadrinhamento">E-mail:</label>
+                    <input type="email" id="email-apadrinhamento" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefone-apadrinhamento">Telefone/WhatsApp:</label>
+                    <input type="tel" id="telefone-apadrinhamento" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="plano-apadrinhamento">Plano escolhido:</label>
+                    <select id="plano-apadrinhamento" required>
+                        <option value="">Selecione um plano</option>
+                        <option value="basico">Básico - R$ 30/mês</option>
+                        <option value="intermediario">Intermediário - R$ 70/mês</option>
+                        <option value="completo">Completo - R$ 150/mês</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensagem-apadrinhamento">Deixe uma mensagem (opcional):</label>
+                    <textarea id="mensagem-apadrinhamento" rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Enviar solicitação de apadrinhamento</button>
+            </form>
+        </div>
+    </div>
+
+     <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3><i class="fas fa-paw"></i> Abrigo de Seu Alberto</h3>
+                    <p>Dedicado ao resgate e adoção de cães abandonados desde 2004.</p>
+                    <div class="redes-sociais">
+                        <a href="https://www.facebook.com/abrigodeseualberto?locale=pt_BR"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/abrigodeseualberto/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5581992014838"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@abrigodeseualberto"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="adocao.html">Cães para Adoção</a></li>
+                        <li><a href="apadrinhamento.html">Apadrinhamento</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contato">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> (81) 99201-4838</p>
+                    <p><i class="fas fa-envelope"></i> contato@abrigoesperanca.org</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jaboatão/PE</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Abrigo de Seu Alberto. Todos os direitos reservados.</p>
+                <div class="creditos-site">
+                    Desenvolvido com ❤️ por 
+                    <a href="https://www.linkedin.com/in/leticiarebeka/" target="_blank" rel="noopener">
+                        Leticia Rebeka
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
