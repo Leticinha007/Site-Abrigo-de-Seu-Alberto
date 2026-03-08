@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrigo de Seu Alberto - Adoção de Cães</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER COM MENU -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="imagens/Logo-Abrido.de.Seu.Alberto1.jpg" alt="Logo Abrigo de Seu Alberto" class="logo-img">
+                <span>Abrigo de Seu Alberto</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="adocao.html">Adoção</a></li>
+                <li><a href="apadrinhamento.html">Apadrinhamento</a></li>
+                <li><a href="doacao.html">Como ajudar</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Encontre um Amigo para Toda a Vida</h1>
+            <p>Conheça nossos cães resgatados e prontos para receber muito amor</p>
+            <div class="hero-buttons">
+                <a href="adocao.html" class="btn btn-primary">Conheça nossos cães</a>
+                <a href="doacao.html" class="btn btn-secondary">Como ajudar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NÚMEROS DO ABRIGO -->
+    <section class="numeros">
+        <div class="container">
+            <div class="numeros-grid">
+                <div class="numero-item">
+                    <span class="numero" data-target="500">900</span>
+                    <p>Cães Resgatados</p>
+                </div>
+                <div class="numero-item">
+                    <span class="numero" data-target="300">890</span>
+                    <p>Adoções Realizadas</p>
+                </div>
+                <div class="numero-item">
+                    <span class="numero" data-target="65">45</span>
+                    <p>Apadrinhamentos</p>
+                </div>
+                <div class="numero-item">
+                    <span class="numero" data-target="22">100</span>
+                    <p>Anos de História</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTAQUES PARA ADOÇÃO -->
+    <section class="destaques">
+        <div class="container">
+            <h2 class="section-title">Conheça Nossos Destaques</h2>
+            <p class="section-subtitle">Cães especiais esperando por um lar</p>
+            
+            <div class="cards-grid" id="destaques-caes">
+                <!-- Cards serão carregados via JavaScript -->
+            </div>
+            
+            <div class="center-button">
+                <a href="adocao.html" class="btn btn-primary">Ver todos os cães</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUE ADOTAR -->
+    <section class="porque-adotar">
+        <div class="container">
+            <div class="porque-content">
+                <div class="porque-texto">
+                    <h2>Por que adotar um cão?</h2>
+                    <p>Adotar é um ato de amor que transforma duas vidas: a sua e a do animal. Nosso abrigo acolhe cães resgatados de situações de abandono e maus-tratos, e todos eles sonham com um lar cheio de carinho.</p>
+                    <ul class="beneficios-lista">
+                        <li><i class="fas fa-heart"></i> Você salva uma vida</li>
+                        <li><i class="fas fa-home"></i> Ganha um companheiro fiel</li>
+                        <li><i class="fas fa-smile"></i> Contribui para uma sociedade mais justa</li>
+                        <li><i class="fas fa-dog"></i> Os cães adultos já são educados</li>
+                    </ul>
+                </div>
+                <div class="porque-imagem">
+                    <img src="imagens/Stela 1.jpg" alt="Cachorro feliz">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="depoimentos">
+        <div class="container">
+            <h2 class="section-title">Histórias de Amor</h2>
+            <div class="depoimentos-grid">
+                <div class="depoimento-card">
+                    <img src="imagens/adotada-Lassie.jpeg" alt="Paula Paiva">
+                    <p>"Essa lobinha linda conquistou nossos corações e nosso lar. Essa é a nova história com final feliz da Lassie!"</p>
+                    <h4>Paula Paiva</h4>
+                    <span>Adotou a Lassie</span>
+                </div>
+                <div class="depoimento-card">
+                    <img src="imagens/adotada-Polly.jpeg" alt="Clara Virgolino">
+                    <p>"Ela é a alegria da casa e a quantidade de pelos que ela deixa pela casa é proporcional ao amor que sentimos por ela, ou seja, MUITO AMOR!"</p>
+                    <h4>Clara Virgolino</h4>
+                    <span>Adotou a Polly</span>
+                </div>
+                <div class="depoimento-card">
+                    <img src="imagens/adotada-Anne.jpeg" alt="Henkell Saraiva">
+                    <p>"Ela é a vida da minha vida e eu sou a vida da vida dela!"</p>
+                    <h4>Henkell Saraiva</h4>
+                    <span>Adotou Anne Nanny Ladislau Saraiva</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FORMULÁRIO DE PRÉ-ADOÇÃO MODAL (ADICIONADO) ===== -->
+    <div id="modal-adocao" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Formulário de Pré-Adoção</h2>
+            <p>Você está interessado no <span id="cao-nome"></span></p>
+            <form id="form-adocao">
+                <input type="hidden" id="cao-id" name="cao-id">
+                
+                <div class="form-group">
+                    <label for="nome">Seu nome completo:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefone">Telefone/WhatsApp:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="endereco">Endereço completo:</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tipo-residencia">Tipo de residência:</label>
+                    <select id="tipo-residencia" name="tipo-residencia" required>
+                        <option value="">Selecione</option>
+                        <option value="casa">Casa com quintal</option>
+                        <option value="casa-sem-quintal">Casa sem quintal</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="sitio">Sítio/Chácara</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experiencia">Já teve cães antes?</label>
+                    <select id="experiencia" name="experiencia" required>
+                        <option value="">Selecione</option>
+                        <option value="sim">Sim, tenho/ tive</option>
+                        <option value="nao">Não, será meu primeiro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="criancas">Possui crianças em casa?</label>
+                    <select id="criancas" name="criancas" required>
+                        <option value="">Selecione</option>
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="outros-animais">Possui outros animais?</label>
+                    <select id="outros-animais" name="outros-animais" required>
+                        <option value="">Selecione</option>
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="porque">Por que deseja adotar?</label>
+                    <textarea id="porque" name="porque" rows="4" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Enviar via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- ===== FIM DO MODAL DE ADOÇÃO ===== -->
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3><i class="fas fa-paw"></i> Abrigo de Seu Alberto</h3>
+                    <p>Dedicado ao resgate e adoção de cães abandonados desde 2004.</p>
+                    <div class="redes-sociais">
+                        <a href="https://www.facebook.com/abrigodeseualberto?locale=pt_BR"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/abrigodeseualberto/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5581999204111"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@abrigodeseualberto"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html" class="active">Início</a></li>
+                        <li><a href="adocao.html">Cães para Adoção</a></li>
+                        <li><a href="apadrinhamento.html">Apadrinhamento</a></li>
+                        <li><a href="doacao.html">Como ajudar</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contato">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> (81) 99920-4111</p>
+                    <p><i class="fas fa-envelope"></i> abrigodeseualbertoo@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jaboatão/PE</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Abrigo de Seu Alberto. Todos os direitos reservados.</p>
+                <div class="creditos-site">
+                    Desenvolvido com ❤️ por 
+                    <a href="https://www.linkedin.com/in/leticiarebeka/" target="_blank" rel="noopener">
+                        Leticia Rebeka
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

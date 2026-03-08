@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Ajudar - Abrigo de Seu Alberto</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos específicos para página de doações */
+        .doacao-page {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+
+        .doacao-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .doacao-header h1 {
+            font-size: 3rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .doacao-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Grid de categorias */
+        .categorias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .categoria-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .categoria-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .categoria-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .categoria-header i {
+            font-size: 2.5rem;
+        }
+
+        .categoria-header h2 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .categoria-content {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .categoria-content p {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .categoria-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .categoria-content li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .categoria-content li i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        .destaque-info {
+            background: var(--light-color);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .destaque-info p {
+            margin: 0;
+            color: var(--dark-color);
+        }
+
+        .btn-doacao {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .btn-doacao:hover {
+            background: #e09600;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(249, 168, 38, 0.4);
+        }
+
+        .btn-doacao i {
+            margin-right: 0.5rem;
+        }
+
+        .btn-copiar {
+            background: #4ecdc4;
+            margin-top: 0.5rem;
+        }
+
+        .btn-copiar:hover {
+            background: #3db9b0;
+        }
+
+        /* Grid de produtos */
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .produto-item {
+            background: var(--light-color);
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .produto-item:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .produto-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .produto-item span {
+            display: block;
+            font-weight: 600;
+        }
+
+        /* Lista de marcas */
+        .marcas-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .marca-tag {
+            background: var(--light-color);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #ddd;
+        }
+
+        /* Informações bancárias */
+        .bancario-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .bancario-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .bancario-header i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .bancario-header h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin: 0;
+        }
+
+        .bancario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .banco-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 15px;
+        }
+
+        .banco-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .banco-card p {
+            margin: 0.5rem 0;
+            color: var(--text-color);
+        }
+
+        .banco-card .chave-pix {
+            background: white;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin: 1rem 0;
+            border: 2px dashed var(--primary-color);
+            word-break: break-all;
+        }
+
+        .picpay-info, .apoia-info, .paypal-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .picpay-info {
+            background: linear-gradient(135deg, #21c25e 0%, #1da1f2 100%);
+        }
+
+        .apoia-info {
+            background: linear-gradient(135deg, #7b2cbf 0%, #9d4edd 100%);
+        }
+
+        .paypal-info {
+            background: linear-gradient(135deg, #003087 0%, #009cde 100%);
+        }
+
+        .plataforma-user {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            margin: 1rem 0;
+            word-break: break-all;
+        }
+
+        /* Pontos de arrecadação */
+        .pontos-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .pontos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .ponto-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .ponto-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .ponto-card h4 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .ponto-card p {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ponto-card i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        .ponto-card .telefone {
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .doacao-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .categorias-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bancario-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pontos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="imagens/Logo-Abrido.de.Seu.Alberto1.jpg" alt="Logo Abrigo de Seu Alberto" class="logo-img">
+                <span>Abrigo de Seu Alberto</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="adocao.html">Adoção</a></li>
+                <li><a href="apadrinhamento.html">Apadrinhamento</a></li>
+                <li><a href="doacao.html" class="active">Como ajudar</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- TÍTULO DA PÁGINA -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Como Ajudar o Abrigo de Seu Alberto?</h1>
+            <p>Existem muitas formas de fazer a diferença na vida dos nossos doguinhos</p>
+        </div>
+    </section>
+
+    <!-- PÁGINA DE DOAÇÕES -->
+    <section class="doacao-page">
+        <div class="container">
+            <!-- GRID DE CATEGORIAS PRINCIPAIS -->
+            <div class="categorias-grid">
+                <!-- CARD 1: DOAÇÃO FINANCEIRA -->
+                <div class="categoria-card">
+                    <div class="categoria-header">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h2>Doação Financeira</h2>
+                    </div>
+                    <div class="categoria-content">
+                        <p>Ajude a cuidar dos nossos doguinhos com doações financeiras. Aceitamos qualquer valor!</p>
+                        
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Depósito em conta bancária</li>
+                            <li><i class="fas fa-check-circle"></i> Pix</li>
+                            <li><i class="fas fa-check-circle"></i> PicPay</li>
+                            <li><i class="fas fa-check-circle"></i> Apoia-se (recorrente)</li>
+                            <li><i class="fas fa-check-circle"></i> PayPal (internacional)</li>
+                            <li><i class="fas fa-check-circle"></i> Entregar em mãos no abrigo</li>
+                            <li><i class="fas fa-check-circle"></i> Doar em eventos de adoção</li>
+                        </ul>
+                        
+                        <a href="#bancario" class="btn-doacao">
+                            <i class="fas fa-university"></i> Ver informações bancárias
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 2: RAÇÃO -->
+                <div class="categoria-card">
+                    <div class="categoria-header">
+                        <i class="fas fa-dog"></i>
+                        <h2>Ração</h2>
+                    </div>
+                    <div class="categoria-content">
+                        <p>Aceitamos ração para cães adultos e filhotes, especialmente das marcas:</p>
+                        
+                        <div class="marcas-lista">
+                            <span class="marca-tag">BIOFRESH</span>
+                            <span class="marca-tag">BOMGUY</span>
+                            <span class="marca-tag">FARO</span>
+                            <span class="marca-tag">GOLDEN</span>
+                            <span class="marca-tag">GRAN PLUS</span>
+                            <span class="marca-tag">MAX</span>
+                            <span class="marca-tag">ORIGENS</span>
+                            <span class="marca-tag">PEDIGREE</span>
+                            <span class="marca-tag">SELECTIONS FOR PETS</span>
+                            <span class="marca-tag">RAÇÃO RENAL</span>
+                        </div>
+                        
+                        <p><strong>Ou qualquer ração super premium!</strong></p>
+                    </div>
+                </div>
+
+                <!-- CARD 3: RAÇÃO ÚMIDA E SACHÊS -->
+                <div class="categoria-card">
+                    <div class="categoria-header">
+                        <i class="fas fa-drumstick-bite"></i>
+                        <h2>Ração Úmida e Sachês</h2>
+                    </div>
+                    <div class="categoria-content">
+                        <div class="marcas-lista">
+                            <span class="marca-tag">DOG CHOW</span>
+                            <span class="marca-tag">GOLDEN</span>
+                            <span class="marca-tag">GRANPLUS</span>
+                            <span class="marca-tag">JOY</span>
+                            <span class="marca-tag">KELDOG</span>
+                            <span class="marca-tag">MAX CÃES</span>
+                            <span class="marca-tag">ORIGEM NATURAL</span>
+                            <span class="marca-tag">PEDIGREE</span>
+                            <span class="marca-tag">PREMIER</span>
+                            <span class="marca-tag">SELECTIONS FOR PETS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 4: PRODUTOS DE LIMPEZA -->
+                <div class="categoria-card">
+                    <div class="categoria-header">
+                        <i class="fas fa-soap"></i>
+                        <h2>Produtos de Limpeza</h2>
+                    </div>
+                    <div class="categoria-content">
+                        <div class="produtos-grid">
+                            <div class="produto-item">
+                                <i class="fas fa-fill-drip"></i>
+                                <span>Água Sanitária</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-pump-soap"></i>
+                                <span>Detergente</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-spray-can"></i>
+                                <span>Desinfetante Pet</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-broom"></i>
+                                <span>Pá</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-broom"></i>
+                                <span>Rodo</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-cube"></i>
+                                <span>Sabão Em Pó</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-trash"></i>
+                                <span>Sacos de Lixo 50L/100L</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-broom"></i>
+                                <span>Vassoura</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 5: MEDICAMENTOS -->
+                <div class="categoria-card">
+                    <div class="categoria-header">
+                        <i class="fas fa-syringe"></i>
+                        <h2>Medicamentos</h2>
+                    </div>
+                    <div class="categoria-content">
+                        <div class="produtos-grid">
+                            <div class="produto-item">
+                                <i class="fas fa-band-aid"></i>
+                                <span>Atadura Grande</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-pills"></i>
+                                <span>Anti-inflamatórios</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-pills"></i>
+                                <span>Antibióticos</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-prescription-bottle"></i>
+                                <span>Doxy Compe</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-band-aid"></i>
+                                <span>Esparadrapo Grande</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Hemolitan / Promundog</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-capsules"></i>
+                                <span>Itraconazol</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-bug"></i>
+                                <span>Pipeta/Spray Carrapato</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-capsules"></i>
+                                <span>Simparic/Nexgard</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-cream"></i>
+                                <span>Crema 6A/Vetagloss</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-cream"></i>
+                                <span>Pomada Cicatrizante</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-capsules"></i>
+                                <span>Vermífugos</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-tablets"></i>
+                                <span>Vitaminas</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-tablets"></i>
+                                <span>Vitamina C</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 6: ACESSÓRIOS E HIGIENE -->
+                <div class="categoria-card">
+                    <div class="categoria-header">
+                        <i class="fas fa-paw"></i>
+                        <h2>Acessórios e Higiene</h2>
+                    </div>
+                    <div class="categoria-content">
+                        <div class="produtos-grid">
+                            <div class="produto-item">
+                                <i class="fas fa-dog"></i>
+                                <span>Brinquedos</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-dog"></i>
+                                <span>Casinhas</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-bed"></i>
+                                <span>Caminhas</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-dog"></i>
+                                <span>Coleiras</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-tshirt"></i>
+                                <span>Lençóis</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-tshirt"></i>
+                                <span>Mantas</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-bone"></i>
+                                <span>Petiscos</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-pump-soap"></i>
+                                <span>Shampoo Carrapato</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-pump-soap"></i>
+                                <span>Shampoo e Condicionador</span>
+                            </div>
+                            <div class="produto-item">
+                                <i class="fas fa-tshirt"></i>
+                                <span>Toalhas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 7: CARONA SOLIDÁRIA -->
+                <div class="categoria-card">
+                    <div class="categoria-header">
+                        <i class="fas fa-car"></i>
+                        <h2>Carona Solidária</h2>
+                    </div>
+                    <div class="categoria-content">
+                        <p>Não temos transporte próprio. O valor gasto com transporte poderia ser usado para outros custos básicos.</p>
+                        
+                        <div class="destaque-info">
+                            <p><i class="fas fa-heart"></i> Ofereça carona para eventos, veterinário ou castração</p>
+                        </div>
+                        
+                        <a href="#" class="btn-doacao" onclick="oferecerCarona()">
+                            <i class="fab fa-whatsapp"></i> Oferecer carona
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 8: DIVULGAÇÃO -->
+                <div class="categoria-card">
+                    <div class="categoria-header">
+                        <i class="fas fa-share-alt"></i>
+                        <h2>Divulgação</h2>
+                    </div>
+                    <div class="categoria-content">
+                        <p>Compartilhe nossos pedidos nas suas redes sociais!</p>
+                        
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Eventos de adoção</li>
+                            <li><i class="fas fa-check-circle"></i> Pedidos de doações</li>
+                            <li><i class="fas fa-check-circle"></i> Anúncios de cães para adoção</li>
+                            <li><i class="fas fa-check-circle"></i> Divulgar nosso perfil</li>
+                        </ul>
+                        
+                        <a href="#" class="btn-doacao" onclick="compartilhar()">
+                            <i class="fas fa-share-alt"></i> Compartilhar abrigo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 9: OFERECENDO SERVIÇO -->
+                <div class="categoria-card">
+                    <div class="categoria-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h2>Ofereça seu Serviço</h2>
+                    </div>
+                    <div class="categoria-content">
+                        <p>Aceitamos todo tipo de ajuda profissional:</p>
+                        
+                        <div class="marcas-lista">
+                            <span class="marca-tag"><i class="fas fa-camera"></i> Fotógrafos</span>
+                            <span class="marca-tag"><i class="fas fa-pencil-alt"></i> Jornalistas</span>
+                            <span class="marca-tag"><i class="fas fa-mobile-alt"></i> Influenciadores</span>
+                            <span class="marca-tag"><i class="fas fa-paint-brush"></i> Pintores</span>
+                            <span class="marca-tag"><i class="fas fa-hammer"></i> Marceneiros</span>
+                            <span class="marca-tag"><i class="fas fa-gift"></i> Produtos para rifar</span>
+                        </div>
+                        
+                        <a href="#" class="btn-doacao" onclick="oferecerServico()">
+                            <i class="fab fa-whatsapp"></i> Oferecer serviço
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INFORMAÇÕES BANCÁRIAS -->
+            <div id="bancario" class="bancario-section">
+                <div class="bancario-header">
+                    <i class="fas fa-university"></i>
+                    <h2>Informações Bancárias</h2>
+                </div>
+                
+                <div class="bancario-grid">
+                    <div class="banco-card">
+                        <h3><i class="fas fa-money-bill-wave"></i> PIX</h3>
+                        <div class="chave-pix">
+                            <strong>(81) 99201-4838</strong>
+                        </div>
+                        <p><strong>Gabriela Pinheiro Prado Viana</strong></p>
+                        <p>Banco C6</p>
+                        <button class="btn-doacao btn-copiar" onclick="copiarChave('81992014838')">
+                            <i class="fas fa-copy"></i> Copiar chave
+                        </button>
+                    </div>
+                    
+                    <div class="banco-card">
+                        <h3><i class="fas fa-mobile-alt"></i> PIX</h3>
+                        <div class="chave-pix">
+                            <strong>abrigodeseualbertoo@gmail.com</strong>
+                        </div>
+                        <p><strong>Gabriela Pinheiro Prado Viana</strong></p>
+                        <p>Banco PicPay</p>
+                        <button class="btn-doacao btn-copiar" onclick="copiarChave('abrigodeseualbertoo@gmail.com')">
+                            <i class="fas fa-copy"></i> Copiar chave
+                        </button>
+                    </div>
+                    
+                    <div class="banco-card">
+                        <h3><i class="fas fa-university"></i> Banco C6</h3>
+                        <p><strong>Agência:</strong> 0001</p>
+                        <p><strong>C/Corrente:</strong> 14011866-7</p>
+                        <p><strong>Gabriela Pinheiro Prado Viana</strong></p>
+                        <button class="btn-doacao btn-copiar" onclick="copiarDadosBancarios()">
+                            <i class="fas fa-copy"></i> Copiar dados
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SEÇÃO PICPAY CORRIGIDA -->
+                <div class="picpay-info">
+                    <h3><i class="fab fa-picpay"></i> PicPay</h3>
+                    <div class="plataforma-user">@abrigodeseualberto</div>
+                    <p><strong>Perfil oficial do abrigo no PicPay</strong></p>
+                    <p>Você pode ajudar os cães que vivem no Abrigo de Seu Alberto doando pelo aplicativo do PicPay, utilizando cartão de crédito, boleto bancário ou PIX, sem valor mínimo para doação.</p>
+                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+                        <p><i class="fab fa-picpay" style="font-size: 2rem;"></i></p>
+                        <p><strong>Encontre nosso perfil no app:</strong> @abrigodeseualberto</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                        <button class="btn-doacao" style="background: white; color: #21c25e; width: auto; display: inline-block; padding: 0.8rem 2rem;" onclick="copiarPerfilPicPay()">
+                            <i class="fab fa-picpay"></i> Copiar perfil
+                        </button>
+                    </div>
+                </div>
+
+                <div class="apoia-info">
+                    <h3><i class="fas fa-hand-holding-heart"></i> Apoia-se</h3>
+                    <div class="plataforma-user">apoia-se/abrigodeseualberto</div>
+                    <p>Assinatura recorrente via cartão de crédito ou boleto</p>
+                    <p>Escolha o valor da sua doação mensal</p>
+                    <a href="https://apoia.se/abrigodeseualberto" target="_blank" class="btn-doacao" style="background: white; color: #7b2cbf; width: auto; display: inline-block; padding: 0.8rem 3rem;">
+                        <i class="fas fa-external-link-alt"></i> Acessar Apoia-se
+                    </a>
+                </div>
+
+                <div class="paypal-info">
+                    <h3><i class="fab fa-paypal"></i> PayPal</h3>
+                    <div class="plataforma-user">mariana_alb@outlook.com</div>
+                    <p><strong>Mariana Alves de Lima Bezerra</strong></p>
+                    <p>Para transferências internacionais</p>
+                    <button class="btn-doacao" style="background: white; color: #003087; width: auto; display: inline-block; padding: 0.8rem 3rem;" onclick="copiarChave('mariana_alb@outlook.com')">
+                        <i class="fab fa-paypal"></i> Copiar e-mail
+                    </button>
+                </div>
+            </div>
+
+            <!-- PONTOS DE ARRECADAÇÃO -->
+            <div class="pontos-section">
+                <div class="bancario-header">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h2>Pontos de Arrecadação</h2>
+                </div>
+                
+                <div class="pontos-grid">
+                    <!-- PIEDADE 1 -->
+                    <div class="ponto-card">
+                        <h3>PIEDADE</h3>
+                        <h4>DOG HOUSE PET SHOP</h4>
+                        <p><i class="fas fa-map-pin"></i> Rua Maria Rita Barradas, 708-A</p>
+                        <p><i class="fas fa-clock"></i> Horário comercial, Segunda à Sábado</p>
+                    </div>
+                    
+                    <!-- PIEDADE 2 -->
+                    <div class="ponto-card">
+                        <h3>PIEDADE</h3>
+                        <p><i class="fas fa-map-pin"></i> Av. Ayrton Senna da Silva, 984</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:81999667875" class="telefone">81 99966-7875</a> - Renata</p>
+                        <p><i class="fas fa-clock"></i> Ligar para combinar horário</p>
+                    </div>
+                    
+                    <!-- IPSEP -->
+                    <div class="ponto-card">
+                        <h3>IPSEP</h3>
+                        <p><i class="fas fa-map-pin"></i> Rua Jacundá, 401</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:81991521150" class="telefone">81 99152-1150</a> - Irce</p>
+                        <p><i class="fas fa-clock"></i> Ligar para combinar horário</p>
+                    </div>
+                    
+                    <!-- CASA FORTE -->
+                    <div class="ponto-card">
+                        <h3>CASA FORTE</h3>
+                        <h4>PET TOWN</h4>
+                        <p><i class="fas fa-map-pin"></i> Rua Jader de Andrade, 71</p>
+                        <p><i class="fas fa-clock"></i> Horário comercial, Segunda à Sábado</p>
+                    </div>
+                    
+                    <!-- CASA AMARELA -->
+                    <div class="ponto-card">
+                        <h3>CASA AMARELA</h3>
+                        <p><i class="fas fa-map-pin"></i> Rua Evaristo da Veiga, 62 - Edf. San Tiago, APT 601</p>
+                        <p><i class="fas fa-user"></i> Mariana</p>
+                    </div>
+                    
+                    <!-- OLINDA -->
+                    <div class="ponto-card">
+                        <h3>OLINDA</h3>
+                        <h4>MARIANO AUTO SERVICE</h4>
+                        <p><i class="fas fa-map-pin"></i> Rua Gilvan Botelho, 109</p>
+                        <p><i class="fas fa-clock"></i> Horário comercial, Segunda à Sábado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3><i class="fas fa-paw"></i> Abrigo de Seu Alberto</h3>
+                    <p>Dedicado ao resgate e adoção de cães abandonados desde 2004.</p>
+                    <div class="redes-sociais">
+                        <a href="https://www.facebook.com/abrigodeseualberto?locale=pt_BR"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/abrigodeseualberto/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5581999204111"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@abrigodeseualberto"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="adocao.html">Cães para Adoção</a></li>
+                        <li><a href="apadrinhamento.html">Apadrinhamento</a></li>
+                        <li><a href="doacao.html"class="active">Como ajudar</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contato">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> (81) 99920-4111</p>
+                    <p><i class="fas fa-envelope"></i> abrigodeseualbertoo@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jaboatão/PE</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Abrigo de Seu Alberto. Todos os direitos reservados.</p>
+                <div class="creditos-site">
+                    Desenvolvido com ❤️ por 
+                    <a href="https://www.linkedin.com/in/leticiarebeka/" target="_blank" rel="noopener">
+                        Leticia Rebeka
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Funções para os botões
+        function copiarChave(chave) {
+            navigator.clipboard.writeText(chave);
+            alert('Chave copiada: ' + chave);
+        }
+
+        function copiarDadosBancarios() {
+            const dados = 'Banco C6\nAgência: 0001\nC/C: 14011866-7\nGabriela Pinheiro Prado Viana';
+            navigator.clipboard.writeText(dados);
+            alert('Dados bancários copiados!');
+        }
+
+        // NOVA FUNÇÃO PARA COPIAR PERFIL DO PICPAY
+        function copiarPerfilPicPay() {
+            navigator.clipboard.writeText('@abrigodeseualberto');
+            alert('Perfil do PicPay copiado: @abrigodeseualberto');
+        }
+
+        function perguntarCamisa() {
+            window.open('https://wa.me/5581999204111?text=Olá! Gostaria de saber mais sobre as camisas do abrigo.', '_blank');
+        }
+
+        function oferecerCarona() {
+            window.open('https://wa.me/5581999204111?text=Olá! Gostaria de oferecer carona solidária para os eventos do abrigo.', '_blank');
+        }
+
+        function oferecerServico() {
+            window.open('https://wa.me/5581999204111?text=Olá! Gostaria de oferecer meu serviço profissional para ajudar o abrigo.', '_blank');
+        }
+
+        function compartilhar() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Abrigo de Seu Alberto',
+                    text: 'Ajude os doguinhos do Abrigo de Seu Alberto!',
+                    url: window.location.origin
+                });
+            } else {
+                alert('Compartilhe nosso Instagram: @abrigodeseualberto');
+            }
+        }
+    </script>
+    
+    <!-- CARREGA O SCRIPT PRINCIPAL DO SITE (COM O MENU MOBILE) -->
+    <script src="js/script.js"></script>
+</body>
+</html>
