@@ -5,8 +5,8 @@ function getAnoAtual() {
     return new Date().getFullYear();
 }
 
-// Retorna o ano de fundação do abrigo (baseado no footer: "desde 2004")
-const ANO_FUNDACAO = 2004; // ALTERE SE NECESSÁRIO
+// Retorna o ano de fundação do abrigo 
+const ANO_FUNDACAO = 2004; 
 
 // Calcula quantos anos de história
 function getAnosHistoria() {
@@ -57,9 +57,9 @@ function atualizarAnosHistoria() {
 // Números de WhatsApp específicos para cada tipo de formulário
 // Formato: código do país + DDD + número (sem espaços, sem +)
 const NUMEROS_WHATSAPP = {
-    adocao: "5581999903645",      // Número para adoções (altere conforme necessário)
-    apadrinhamento: "5581999204111", // Número para apadrinhamentos (ALTERE)
-    contato: "5581999204111"       // Número para contato geral (baseado no seu footer)
+    adocao: "5581999903645",      // Número para adoções 
+    apadrinhamento: "5581999204111", // Número para apadrinhamentos 
+    contato: "5581999204111"       // Número para contato geral 
 };
 
 // Função para enviar formulário de adoção via WhatsApp
@@ -101,7 +101,7 @@ function enviarWhatsAppAdocao(event) {
     mensagem += `*Possui outros animais?* ${outrosAnimais}%0a`;
     mensagem += `*Por que deseja adotar?* ${porque}%0a`;
     
-    // Criar URL do WhatsApp com o número específico para adoção - CORRIGIDO!
+    // Criar URL do WhatsApp com o número específico para adoção
     const url = `https://wa.me/${NUMEROS_WHATSAPP.adocao}?text=${mensagem}`;
     
     // Abrir WhatsApp em nova aba
@@ -1200,7 +1200,7 @@ function carregarTodosCaes() {
     }
 }
 
-// Função para filtrar cães de adoção - CORRIGIDA (com suporte a acentos)
+// Função para filtrar cães de adoção 
 function filtrarCaes() {
     const porteFiltro = document.getElementById('filtro-porte')?.value;
     const idadeFiltro = document.getElementById('filtro-idade')?.value;
@@ -1211,7 +1211,7 @@ function filtrarCaes() {
     const caesFiltrados = caes.filter(cao => {
         if (!cao.paraAdocao) return false;
         
-        // ===== FILTRO DE PORTE - CORRIGIDO (com remoção de acentos) =====
+        // ===== FILTRO DE PORTE =====
         let porteOk = true;
         if (porteFiltro) {
             const porteCao = String(cao.porte).toLowerCase().trim();
@@ -1240,7 +1240,7 @@ function filtrarCaes() {
         if (idadeFiltro === 'adulto') idadeOk = idadeCao === '3 anos' || idadeCao === '4 anos' || idadeCao === '5 anos' || idadeCao === '6 anos';
         if (idadeFiltro === 'idoso') idadeOk = idadeCao === '7 anos' || idadeCao === '8 anos' || idadeCao === '10 anos' || idadeCao === '11 anos' || idadeCao === '12 anos';
         
-        // FILTRO DE SEXO - CORRIGIDO
+        // FILTRO DE SEXO 
         let sexoOk = true;
         if (sexoFiltro) {
             const sexoCao = String(cao.sexo).toLowerCase().trim();
@@ -1342,7 +1342,7 @@ function carregarCaesApadrinhamento() {
     }
 }
 
-// Função para filtrar cães de apadrinhamento - CORRIGIDA
+// Função para filtrar cães de apadrinhamento 
 function filtrarCaesApadrinhamento() {
     const porteFiltro = document.getElementById('filtro-porte')?.value;
     const idadeFiltro = document.getElementById('filtro-idade')?.value;
@@ -1351,7 +1351,7 @@ function filtrarCaesApadrinhamento() {
     const caesFiltrados = caes.filter(cao => {
         if (!cao.paraApadrinhamento) return false;
         
-        // ===== FILTRO DE PORTE - CORRIGIDO =====
+        // ===== FILTRO DE PORTE =====
         let porteOk = true;
         if (porteFiltro) {
             const porteCao = String(cao.porte).toLowerCase().trim();
