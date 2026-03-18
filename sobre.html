@@ -49,7 +49,7 @@
         /* Seção do fundador */
         .fundador-section {
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
-                        url(imagens/todos);
+                        url(imagens/todos2.jpeg);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -228,6 +228,27 @@
             margin-bottom: 1rem;
         }
 
+        /* ===== FOTOS MAIORES DAS NOVAS RESPONSÁVEIS ===== */
+        .depoimentos .depoimento-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(249, 168, 38, 0.3);
+        }
+
+        .depoimentos .depoimento-card {
+            padding: 2.5rem 2rem;
+        }
+
+        .depoimentos .depoimento-card p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        /* ===== FIM DAS FOTOS MAIORES ===== */
+
         @media (max-width: 768px) {
             .historia-container {
                 grid-template-columns: 1fr;
@@ -248,6 +269,11 @@
             
             .timeline-content::before {
                 left: -50px !important;
+            }
+
+            .depoimentos .depoimento-card img {
+                width: 120px;
+                height: 120px;
             }
         }
     </style>
@@ -277,7 +303,7 @@
     </header>
 
     <!-- TÍTULO DA PÁGINA -->
-    <section class="page-title">
+    <section class="page-title" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('imagens/todos4.jpeg'); background-size: cover; background-position: center;">
         <div class="container">
             <h1>Nossa História</h1>
             <p>Uma jornada de amor, dedicação e esperança</p>
@@ -293,7 +319,7 @@
                     
                     <p>A história do <strong>Abrigo de Seu Alberto</strong> começou com a compaixão de <strong>Alberto Ribeiro Bezerra</strong>. Em seu caminho diário para o trabalho, ele encontrava cães abandonados e, mesmo morando com uma tia e tendo apenas dois cachorros, não resistia em trazê-los para casa.</p>
                     
-                    <p>Tudo mudou quando um cachorro doente apareceu em sua porta. Após acolhê-lo, outros animais foram chegando até que, com <strong>16 cães</strong>, a situação ficou insustentável. Foi então que, em <strong>2004</strong>, Alberto deixou o emprego e fundou o abrigo em Jaboatão dos Guararapes, dedicando-se integralmente à causa animal.</p>
+                    <p>Tudo mudou quando um cachorro doente apareceu em sua porta. Após acolhê-lo, otros animais foram chegando até que, com <strong>16 cães</strong>, a situação ficou insustentável. Foi então que, em <strong>2004</strong>, Alberto deixou o emprego e fundou o abrigo em Jaboatão dos Guararapes, dedicando-se integralmente à causa animal.</p>
                     
                     <div class="citacao">
                         "O que mais importa não é o que temos na vida, mas quem temos na vida. E eu tive a sorte de ter centenas de amigos de quatro patas que me ensinaram o verdadeiro significado do amor incondicional."
@@ -308,7 +334,7 @@
                 
                 <div class="historia-imagem">
                     <img src="imagens/Fundador.jpeg" alt="Primeiro cão resgatado">
-                    <p style="text-align: center; margin-top: 1rem; color: #666; font-style: italic;">Em memória do fundador - Alberto Ribeiro Bezerra</p>
+                    <p style="text-align: center; margin-top: 1rem; color: #666; font-style: italic;">Em memória do fundador - Alberto Ribeiro</p>
                 </div>
             </div>
         </div>
@@ -322,7 +348,7 @@
                     <img src="imagens/Fundador.jpeg" alt="Seu Alberto - Fundador">
                 </div>
                 
-                <h2 class="fundador-nome">Alberto Mendes</h2>
+                <h2 class="fundador-nome">Alberto Ribeiro</h2>
                 <div class="fundador-datas">1955 - 2025</div>
                 
                 <div class="fundador-mensagem">
@@ -337,13 +363,13 @@
                 <div class="legado-grid">
                     <div class="legado-item">
                         <i class="fas fa-heart"></i>
-                        <h3>+500 Vidas Salvas</h3>
-                        <p>Mais de 500 cães resgatados das ruas e de situações de maus-tratos</p>
+                        <h3>+1000 Vidas Salvas</h3>
+                        <p>Mais de 1000 cães resgatados das ruas e de situações de maus-tratos</p>
                     </div>
                     
                     <div class="legado-item">
                         <i class="fas fa-home"></i>
-                        <h3>+300 Adoções</h3>
+                        <h3>+500 Adoções</h3>
                         <p>Centenas de famílias formadas e lares cheios de amor</p>
                     </div>
                     
@@ -352,6 +378,32 @@
                         <h3>Legado de Amor</h3>
                         <p>Sua história inspira dezenas de voluntários que continuam sua missão</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AS NOVAS RESPONSÁVEIS PELO ABRIGO - COM FOTOS MAIORES -->
+    <section class="depoimentos">
+        <div class="container">
+            <h2 class="section-title">As novas responsáveis pelo abrigo</h2>
+            <div class="depoimentos-grid">
+                <div class="depoimento-card">
+                    <img src="imagens/Talita1.png" alt="Talita">
+                    <p>"Talita, há 8 anos no abrigo. Chegou num momento de dor pessoal e encontrou ali um propósito. Hoje, é ela quem luta por cada adoção, por cada cãozinho que sai do portão pra nunca mais voltar sozinho. Talita é coração e movimento."</p>
+                    <h4>Talita</h4>
+                </div>
+                
+                <div class="depoimento-card">
+                    <img src="imagens/Gabi1.png" alt="Gabi">
+                    <p>"Gabriela, há 10 anos ao seu lado. Começou com uma visita despretensiosa e se tornou seu braço direito. Hoje, é ela quem cuida da rotina dos cães, da parte administrativa, dos funcionários. Gabriela é força e estrutura."</p>
+                    <h4>Gabi</h4>
+                </div>
+                
+                <div class="depoimento-card">
+                    <img src="imagens/Mari1.png" alt="Mari">
+                    <p>"Mariana, com quase 8 anos de história. Começou com uma simples visita... e nunca mais foi embora. Discreta, constante, presente em tudo: eventos, decisões, bastidores e nas horas difíceis. Mariana é base e presença."</p>
+                    <h4>Mari</h4>
                 </div>
             </div>
         </div>
@@ -415,35 +467,6 @@
         </div>
     </section>
 
-    <!-- ATUAL ADMINISTRAÇÃO -->
-    <section class="depoimentos">
-        <div class="container">
-            <h2 class="section-title">O legado de Seu Alberto</h2>
-            <div class="depoimentos-grid">
-                <div class="depoimento-card">
-                    <img src="imagens/Talita1.png" alt="Talita">
-                    <p>"Talita, há 8 anos no abrigo. Chegou num momento de dor pessoal e encontrou ali um propósito. Hoje, é ela quem luta por cada adoção, por cada cãozinho que sai do portão pra nunca mais voltar sozinho. Talita é coração e movimento."</p>
-                    <h4>Talita</h4>
-                    <span>Presidente do abrigo</span>
-                </div>
-                
-                <div class="depoimento-card">
-                    <img src="imagens/Gabi1.png" alt="Gabi">
-                    <p>"Gabriela, há 10 anos ao seu lado. Começou com uma visita despretensiosa e se tornou seu braço direito. Hoje, é ela quem cuida da rotina dos cães, da parte administrativa, dos funcionários. Gabriela é força e estrutura."</p>
-                    <h4>Gabi</h4>
-                    <span>Responsável do abrigo</span>
-                </div>
-                
-                <div class="depoimento-card">
-                    <img src="imagens/Mari1.png" alt="Mari">
-                    <p>"Mariana, com quase 8 anos de história. Começou com uma simples visita... e nunca mais foi embora. Discreta, constante, presente em tudo: eventos, decisões, bastidores e nas horas difíceis. Mariana é base e presença."</p>
-                    <h4>Mari</h4>
-                    <span>Coordenadora do abrigo</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- MISSÃO E VALORES -->
     <section class="porque-adotar" style="background: #f9f9f9;">
         <div class="container">
@@ -467,7 +490,7 @@
         </div>
     </section>
 
-     <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -496,7 +519,7 @@
                     <h4>Contato</h4>
                     <p><i class="fas fa-phone"></i> (81) 99920-4111</p>
                     <p><i class="fas fa-envelope"></i> abrigodeseualbertoo@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Jaboatão/PE</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jaboatão dos Guararapes/PE</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -508,7 +531,8 @@
                     </a>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>

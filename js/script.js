@@ -222,7 +222,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
 
     },
     {
@@ -237,7 +237,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 4,
@@ -251,7 +251,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 5,
@@ -265,7 +265,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 6,
@@ -307,7 +307,7 @@ const caes = [
         tags: ["Castrado" , "Vacinado" , "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 9,
@@ -321,7 +321,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 10,
@@ -335,7 +335,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 11,
@@ -349,7 +349,7 @@ const caes = [
         tags: ["Castrada" , "Vacinada" , "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 12,
@@ -363,7 +363,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 13,
@@ -377,7 +377,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 14,
@@ -391,7 +391,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 15,
@@ -405,7 +405,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 16,
@@ -419,7 +419,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 17,
@@ -433,7 +433,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 18,
@@ -447,7 +447,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 19,
@@ -461,7 +461,7 @@ const caes = [
         tags: ["Castrada" , "Vacinada" , "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 20,
@@ -475,7 +475,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: true,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 21,
@@ -489,7 +489,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 22,
@@ -503,7 +503,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 23,
@@ -517,7 +517,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 24,
@@ -531,7 +531,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 25,
@@ -545,7 +545,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 26,
@@ -559,7 +559,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: true,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 27,
@@ -573,7 +573,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 28,
@@ -587,7 +587,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 29,
@@ -601,7 +601,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 30,
@@ -615,7 +615,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 31,
@@ -629,7 +629,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 32,
@@ -643,7 +643,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 33,
@@ -657,7 +657,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 34,
@@ -671,7 +671,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 35,
@@ -685,7 +685,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 36,
@@ -699,7 +699,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 37,
@@ -713,7 +713,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: true,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 38,
@@ -727,7 +727,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 39,
@@ -741,7 +741,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 40,
@@ -755,7 +755,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 41,
@@ -769,7 +769,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 42,
@@ -783,7 +783,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 43,
@@ -797,7 +797,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 44,
@@ -811,7 +811,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 45,
@@ -825,7 +825,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 46,
@@ -839,7 +839,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 47,
@@ -853,7 +853,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 48,
@@ -867,7 +867,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 49,
@@ -881,7 +881,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 50,
@@ -895,7 +895,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 51,
@@ -909,7 +909,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 52,
@@ -923,7 +923,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: true,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 53,
@@ -937,7 +937,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 54,
@@ -951,7 +951,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 55,
@@ -965,7 +965,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 56,
@@ -979,7 +979,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 57,
@@ -993,7 +993,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 58,
@@ -1021,7 +1021,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 60,
@@ -1049,7 +1049,7 @@ const caes = [
         tags: ["Castrado", "Vacinado", "Vermifugado"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 62,
@@ -1063,7 +1063,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     },
     {
         id: 63,
@@ -1077,7 +1077,7 @@ const caes = [
         tags: ["Castrada", "Vacinada", "Vermifugada"],
         destaque: false,
         paraAdocao: true,
-        paraApadrinhamento: false
+        paraApadrinhamento: true
     }
 ];
 
@@ -1333,10 +1333,26 @@ function criarCardApadrinhamento(cao) {
     `;
 }
 
-// Função para carregar cães disponíveis para apadrinhamento
+// ========== NOVA FUNÇÃO PARA CARREGAR CÃES DE APADRINHAMENTO (COM VERIFICAÇÃO) ==========
 function carregarCaesApadrinhamento() {
     const container = document.getElementById('todos-caes-apadrinhamento');
-    if (container) {
+    const mensagem = document.getElementById('sem-caes-mensagem');
+    
+    if (container && mensagem) {
+        const caesApadrinhamento = caes.filter(cao => cao.paraApadrinhamento === true);
+        
+        if (caesApadrinhamento.length === 0) {
+            // Não há cães para apadrinhamento - mostra mensagem e esconde container de cards
+            container.style.display = 'none';
+            mensagem.style.display = 'block';
+        } else {
+            // Há cães - mostra cards e esconde mensagem
+            container.style.display = 'grid';
+            mensagem.style.display = 'none';
+            container.innerHTML = caesApadrinhamento.map(criarCardApadrinhamento).join('');
+        }
+    } else if (container) {
+        // Se não tiver a mensagem, mantém o comportamento antigo
         const caesApadrinhamento = caes.filter(cao => cao.paraApadrinhamento === true);
         container.innerHTML = caesApadrinhamento.map(criarCardApadrinhamento).join('');
     }
@@ -1396,7 +1412,18 @@ function filtrarCaesApadrinhamento() {
     });
     
     const container = document.getElementById('todos-caes-apadrinhamento');
-    if (container) {
+    const mensagem = document.getElementById('sem-caes-mensagem');
+    
+    if (container && mensagem) {
+        if (caesFiltrados.length === 0) {
+            container.style.display = 'none';
+            mensagem.style.display = 'block';
+        } else {
+            container.style.display = 'grid';
+            mensagem.style.display = 'none';
+            container.innerHTML = caesFiltrados.map(criarCardApadrinhamento).join('');
+        }
+    } else if (container) {
         if (caesFiltrados.length === 0) {
             container.innerHTML = '<p style="text-align: center; padding: 2rem;">Nenhum cão encontrado com esses filtros.</p>';
         } else {

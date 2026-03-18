@@ -199,12 +199,12 @@
             border: 1px solid #ddd;
         }
 
-        /* Informações bancárias */
+        /* Informações bancárias - AGORA NO TOPO */
         .bancario-section {
             background: white;
             border-radius: 20px;
             padding: 2rem;
-            margin-top: 3rem;
+            margin-bottom: 3rem; /* Mudado de margin-top para margin-bottom */
             box-shadow: var(--shadow);
         }
 
@@ -391,7 +391,7 @@
     </header>
 
     <!-- TÍTULO DA PÁGINA -->
-    <section class="page-title">
+    <section class="page-title" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('imagens/todos2.jpeg'); background-size: cover; background-position: center;">
         <div class="container">
             <h1>Como Ajudar o Abrigo de Seu Alberto?</h1>
             <p>Existem muitas formas de fazer a diferença na vida dos nossos doguinhos</p>
@@ -401,6 +401,88 @@
     <!-- PÁGINA DE DOAÇÕES -->
     <section class="doacao-page">
         <div class="container">
+            
+            <!-- ===== INFORMAÇÕES BANCÁRIAS - AGORA NO TOPO ===== -->
+            <div id="bancario" class="bancario-section">
+                <div class="bancario-header">
+                    <i class="fas fa-university"></i>
+                    <h2>Faça sua Doação Agora!</h2>
+                </div>
+                
+                <div class="bancario-grid">
+                    <div class="banco-card">
+                        <h3><i class="fas fa-money-bill-wave"></i> PIX</h3>
+                        <div class="chave-pix">
+                            <strong>(81) 99201-4838</strong>
+                        </div>
+                        <p><strong>Gabriela Pinheiro Prado Viana</strong></p>
+                        <p>Banco C6</p>
+                        <button class="btn-doacao btn-copiar" onclick="copiarChave('81992014838')">
+                            <i class="fas fa-copy"></i> Copiar chave
+                        </button>
+                    </div>
+                    
+                    <div class="banco-card">
+                        <h3><i class="fas fa-mobile-alt"></i> PIX</h3>
+                        <div class="chave-pix">
+                            <strong>abrigodeseualbertoo@gmail.com</strong>
+                        </div>
+                        <p><strong>Gabriela Pinheiro Prado Viana</strong></p>
+                        <p>Banco PicPay</p>
+                        <button class="btn-doacao btn-copiar" onclick="copiarChave('abrigodeseualbertoo@gmail.com')">
+                            <i class="fas fa-copy"></i> Copiar chave
+                        </button>
+                    </div>
+                    
+                    <div class="banco-card">
+                        <h3><i class="fas fa-university"></i> Banco C6</h3>
+                        <p><strong>Agência:</strong> 0001</p>
+                        <p><strong>C/Corrente:</strong> 14011866-7</p>
+                        <p><strong>Gabriela Pinheiro Prado Viana</strong></p>
+                        <button class="btn-doacao btn-copiar" onclick="copiarDadosBancarios()">
+                            <i class="fas fa-copy"></i> Copiar dados
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SEÇÃO PICPAY -->
+                <div class="picpay-info">
+                    <h3><i class="fab fa-picpay"></i> PicPay</h3>
+                    <div class="plataforma-user">@abrigodeseualberto</div>
+                    <p><strong>Perfil oficial do abrigo no PicPay</strong></p>
+                    <p>Você pode ajudar os cães que vivem no Abrigo de Seu Alberto doando pelo aplicativo do PicPay, utilizando cartão de crédito, boleto bancário ou PIX, sem valor mínimo para doação.</p>
+                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+                        <p><i class="fab fa-picpay" style="font-size: 2rem;"></i></p>
+                        <p><strong>Encontre nosso perfil no app:</strong> @abrigodeseualberto</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                        <button class="btn-doacao" style="background: white; color: #21c25e; width: auto; display: inline-block; padding: 0.8rem 2rem;" onclick="copiarPerfilPicPay()">
+                            <i class="fab fa-picpay"></i> Copiar perfil
+                        </button>
+                    </div>
+                </div>
+
+                <div class="apoia-info">
+                    <h3><i class="fas fa-hand-holding-heart"></i> Apoia-se</h3>
+                    <div class="plataforma-user">apoia-se/abrigodeseualberto</div>
+                    <p>Assinatura recorrente via cartão de crédito ou boleto</p>
+                    <p>Escolha o valor da sua doação mensal</p>
+                    <a href="https://apoia.se/abrigodeseualberto" target="_blank" class="btn-doacao" style="background: white; color: #7b2cbf; width: auto; display: inline-block; padding: 0.8rem 3rem;">
+                        <i class="fas fa-external-link-alt"></i> Acessar Apoia-se
+                    </a>
+                </div>
+
+                <div class="paypal-info">
+                    <h3><i class="fab fa-paypal"></i> PayPal</h3>
+                    <div class="plataforma-user">mariana_alb@outlook.com</div>
+                    <p><strong>Mariana Alves de Lima Bezerra</strong></p>
+                    <p>Para transferências internacionais</p>
+                    <button class="btn-doacao" style="background: white; color: #003087; width: auto; display: inline-block; padding: 0.8rem 3rem;" onclick="copiarChave('mariana_alb@outlook.com')">
+                        <i class="fab fa-paypal"></i> Copiar e-mail
+                    </button>
+                </div>
+            </div>
+
             <!-- GRID DE CATEGORIAS PRINCIPAIS -->
             <div class="categorias-grid">
                 <!-- CARD 1: DOAÇÃO FINANCEIRA -->
@@ -706,87 +788,6 @@
                 </div>
             </div>
 
-            <!-- INFORMAÇÕES BANCÁRIAS -->
-            <div id="bancario" class="bancario-section">
-                <div class="bancario-header">
-                    <i class="fas fa-university"></i>
-                    <h2>Informações Bancárias</h2>
-                </div>
-                
-                <div class="bancario-grid">
-                    <div class="banco-card">
-                        <h3><i class="fas fa-money-bill-wave"></i> PIX</h3>
-                        <div class="chave-pix">
-                            <strong>(81) 99201-4838</strong>
-                        </div>
-                        <p><strong>Gabriela Pinheiro Prado Viana</strong></p>
-                        <p>Banco C6</p>
-                        <button class="btn-doacao btn-copiar" onclick="copiarChave('81992014838')">
-                            <i class="fas fa-copy"></i> Copiar chave
-                        </button>
-                    </div>
-                    
-                    <div class="banco-card">
-                        <h3><i class="fas fa-mobile-alt"></i> PIX</h3>
-                        <div class="chave-pix">
-                            <strong>abrigodeseualbertoo@gmail.com</strong>
-                        </div>
-                        <p><strong>Gabriela Pinheiro Prado Viana</strong></p>
-                        <p>Banco PicPay</p>
-                        <button class="btn-doacao btn-copiar" onclick="copiarChave('abrigodeseualbertoo@gmail.com')">
-                            <i class="fas fa-copy"></i> Copiar chave
-                        </button>
-                    </div>
-                    
-                    <div class="banco-card">
-                        <h3><i class="fas fa-university"></i> Banco C6</h3>
-                        <p><strong>Agência:</strong> 0001</p>
-                        <p><strong>C/Corrente:</strong> 14011866-7</p>
-                        <p><strong>Gabriela Pinheiro Prado Viana</strong></p>
-                        <button class="btn-doacao btn-copiar" onclick="copiarDadosBancarios()">
-                            <i class="fas fa-copy"></i> Copiar dados
-                        </button>
-                    </div>
-                </div>
-
-                <!-- SEÇÃO PICPAY -->
-                <div class="picpay-info">
-                    <h3><i class="fab fa-picpay"></i> PicPay</h3>
-                    <div class="plataforma-user">@abrigodeseualberto</div>
-                    <p><strong>Perfil oficial do abrigo no PicPay</strong></p>
-                    <p>Você pode ajudar os cães que vivem no Abrigo de Seu Alberto doando pelo aplicativo do PicPay, utilizando cartão de crédito, boleto bancário ou PIX, sem valor mínimo para doação.</p>
-                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                        <p><i class="fab fa-picpay" style="font-size: 2rem;"></i></p>
-                        <p><strong>Encontre nosso perfil no app:</strong> @abrigodeseualberto</p>
-                    </div>
-                    <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
-                        <button class="btn-doacao" style="background: white; color: #21c25e; width: auto; display: inline-block; padding: 0.8rem 2rem;" onclick="copiarPerfilPicPay()">
-                            <i class="fab fa-picpay"></i> Copiar perfil
-                        </button>
-                    </div>
-                </div>
-
-                <div class="apoia-info">
-                    <h3><i class="fas fa-hand-holding-heart"></i> Apoia-se</h3>
-                    <div class="plataforma-user">apoia-se/abrigodeseualberto</div>
-                    <p>Assinatura recorrente via cartão de crédito ou boleto</p>
-                    <p>Escolha o valor da sua doação mensal</p>
-                    <a href="https://apoia.se/abrigodeseualberto" target="_blank" class="btn-doacao" style="background: white; color: #7b2cbf; width: auto; display: inline-block; padding: 0.8rem 3rem;">
-                        <i class="fas fa-external-link-alt"></i> Acessar Apoia-se
-                    </a>
-                </div>
-
-                <div class="paypal-info">
-                    <h3><i class="fab fa-paypal"></i> PayPal</h3>
-                    <div class="plataforma-user">mariana_alb@outlook.com</div>
-                    <p><strong>Mariana Alves de Lima Bezerra</strong></p>
-                    <p>Para transferências internacionais</p>
-                    <button class="btn-doacao" style="background: white; color: #003087; width: auto; display: inline-block; padding: 0.8rem 3rem;" onclick="copiarChave('mariana_alb@outlook.com')">
-                        <i class="fab fa-paypal"></i> Copiar e-mail
-                    </button>
-                </div>
-            </div>
-
             <!-- PONTOS DE ARRECADAÇÃO -->
             <div class="pontos-section">
                 <div class="bancario-header">
@@ -875,7 +876,7 @@
                     <h4>Contato</h4>
                     <p><i class="fas fa-phone"></i> (81) 99920-4111</p>
                     <p><i class="fas fa-envelope"></i> abrigodeseualbertoo@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Jaboatão/PE</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jaboatão dos Guararapes/PE</p>
                 </div>
             </div>
             <div class="footer-bottom">

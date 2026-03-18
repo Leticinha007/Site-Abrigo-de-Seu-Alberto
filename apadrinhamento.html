@@ -7,6 +7,63 @@
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo para a mensagem de indisponibilidade */
+        .sem-caes-container {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin: 2rem 0;
+        }
+
+        .sem-caes-container i {
+            font-size: 5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .sem-caes-container h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .sem-caes-container p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-apoia-se {
+            display: inline-block;
+            background: linear-gradient(135deg, #7b2cbf 0%, #9d4edd 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .btn-apoia-se:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(123, 44, 191, 0.4);
+        }
+
+        .btn-apoia-se i {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+    </style>
 </head>
 <body>
     <!-- HEADER -->
@@ -32,8 +89,8 @@
         </nav>
     </header>
 
-    <!-- TÍTULO DA PÁGINA -->
-    <section class="page-title">
+    <!-- TÍTULO DA PÁGINA - COM IMAGEM PERSONALIZADA -->
+    <section class="page-title" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('imagens/todos6.jpeg'); background-size: cover; background-position: center;">
         <div class="container">
             <h1>Cães para Apadrinhamento</h1>
             <p>Escolha um cão para apadrinhar e faça parte da história dele</p>
@@ -70,8 +127,20 @@
     <!-- LISTA DE CÃES PARA APADRINHAMENTO -->
     <section class="caes-lista">
         <div class="container">
-            <div class="cards-grid" id="todos-caes-apadrinhamento">
-                <!-- Cards serão carregados via JavaScript -->
+            <!-- Container para os cards (será preenchido via JavaScript) -->
+            <div class="cards-grid" id="todos-caes-apadrinhamento"></div>
+            
+            <!-- Container para mensagem de indisponibilidade (inicialmente oculto) -->
+            <div id="sem-caes-mensagem" class="sem-caes-container" style="display: none;">
+                <i class="fas fa-heart-broken"></i>
+                <h3>No momento não temos cães disponíveis para apadrinhamento</h3>
+                <p>Mas você pode continuar ajudando nossos doguinhos através de uma assinatura mensal no Apoia-se! 💕</p>
+                <a href="https://apoia.se/abrigodeseualberto" target="_blank" class="btn-apoia-se">
+                    <i class="fas fa-hand-holding-heart"></i> Fazer assinatura mensal
+                </a>
+                <p style="font-size: 1rem; margin-top: 2rem; color: #999;">
+                    Sua assinatura mensal ajuda a manter os cuidados com todos os cães do abrigo.
+                </p>
             </div>
         </div>
     </section>
@@ -182,7 +251,7 @@
                     <h4>Contato</h4>
                     <p><i class="fas fa-phone"></i> (81) 99920-4111</p>
                     <p><i class="fas fa-envelope"></i> abrigodeseualbertoo@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Jaboatão/PE</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jaboatão dos Guararapes/PE</p>
                 </div>
             </div>
             <div class="footer-bottom">

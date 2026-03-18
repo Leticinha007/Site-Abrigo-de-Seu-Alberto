@@ -111,7 +111,7 @@ body {
 /* HERO SECTION */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                url(../imagens/todos);
+                url(../imagens/todos7.jpeg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -394,7 +394,7 @@ body {
     box-shadow: var(--shadow);
 }
 
-/* DEPOIMENTOS */
+/* DEPOIMENTOS - COM FOTOS MAIORES PARA AS NOVAS RESPONSÁVEIS */
 .depoimentos {
     background: var(--light-color);
     padding: 5rem 0;
@@ -414,12 +414,15 @@ body {
     box-shadow: var(--shadow);
 }
 
+/* Fotos maiores para as novas responsáveis */
 .depoimento-card img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(249, 168, 38, 0.3);
 }
 
 .depoimento-card p {
@@ -855,6 +858,12 @@ footer {
     
     .sobre-apadrinhamento li {
         font-size: 0.95rem;
+    }
+    
+    /* Fotos das responsáveis ficam um pouco menores no mobile */
+    .depoimento-card img {
+        width: 120px;
+        height: 120px;
     }
 }
 
