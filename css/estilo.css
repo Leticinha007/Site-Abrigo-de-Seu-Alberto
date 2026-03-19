@@ -61,7 +61,7 @@ body {
 }
 
 .logo span {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: bold;
     color: var(--primary-color);
     white-space: normal; /* Permite quebrar linha */
