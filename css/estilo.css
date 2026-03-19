@@ -64,9 +64,10 @@ body {
     font-size: 1.3rem;
     font-weight: bold;
     color: var(--primary-color);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Adiciona ... se o texto for muito longo */
+    white-space: normal; /* Permite quebrar linha */
+    overflow: visible; /* Mostra todo o texto */
+    text-overflow: clip; /* Remove as reticências */
+    line-height: 1.2;
 }
 
 .nav-menu {
