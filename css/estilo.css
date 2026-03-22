@@ -285,11 +285,6 @@ body {
     font-style: italic;
 }
 
-.cao-historia {
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
 .btn-adotar, .btn-apadrinhar {
     width: 100%;
     padding: 0.8rem;
@@ -973,3 +968,35 @@ footer {
         font-size: 0.95rem;
     }
 }
+
+.cao-card {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.cao-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.cao-card:hover::after {
+    transform: scaleX(1);
+}
+
+.cao-card {
+    animation: fadeInUp 0.5s ease backwards;
+}
+
+.cao-card:nth-child(1) { animation-delay: 0.1s; }
+.cao-card:nth-child(2) { animation-delay: 0.2s; }
+.cao-card:nth-child(3) { animation-delay: 0.3s; }
+.cao-card:nth-child(4) { animation-delay: 0.4s; }
+.cao-card:nth-child(5) { animation-delay: 0.5s; }
+.cao-card:nth-child(6) { animation-delay: 0.6s; }

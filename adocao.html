@@ -31,11 +31,13 @@
         </nav>
     </header>
 
-    <!-- TÍTULO DA PÁGINA - COM IMAGEM PERSONALIZADA -->
+    <!-- TÍTULO DA PÁGINA -->
     <section class="page-title" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('imagens/todos3.jpeg'); background-size: cover; background-position: center;">
         <div class="container">
             <h1>Cães para Adoção</h1>
-            <p>Conheça cada um dos nossos resgatados e encontre seu novo melhor amigo</p>
+            <p style="font-size: 1.2rem; font-style: italic; max-width: 700px; margin: 1rem auto 0;">
+            Cada um desses cães espera por um lar cheio de amor. Será que você é a pessoa que eles tanto esperam? 💛
+            </p>
         </div>
     </section>
 
@@ -75,6 +77,17 @@
         </div>
     </section>
 
+<div id="nenhum-resultado" style="display: none; text-align: center; padding: 3rem;">
+    <i class="fas fa-dog fa-3x" style="color: var(--text-light);"></i>
+    <p style="margin-top: 1rem; color: var(--text-light);">
+        Não encontramos nenhum cão com esses filtros.<br>
+        Que tal tentar outras opções? 🐕
+    </p>
+    <button onclick="limparFiltros()" class="btn btn-primary" style="margin-top: 1rem;">
+        <i class="fas fa-undo"></i> Limpar filtros
+    </button>
+</div>
+
     <!-- FORMULÁRIO DE PRÉ-ADOÇÃO MODAL -->
     <div id="modal-adocao" class="modal">
         <div class="modal-content">
@@ -82,7 +95,6 @@
             <h2>Formulário de Pré-Adoção</h2>
             <p>Você está interessado no <span id="cao-nome"></span></p>
             <form id="form-adocao">
-                <!-- Campos ocultos do FormSubmit removidos -->
                 
                 <input type="hidden" id="cao-id" name="cao-id">
                 
