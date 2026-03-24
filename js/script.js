@@ -1485,3 +1485,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+// Função para copiar cupom
+function copiarCupom(idElemento) {
+    const elemento = document.getElementById(idElemento);
+    const texto = elemento.textContent;
+    
+    navigator.clipboard.writeText(texto).then(() => {
+        // Feedback visual
+        const botao = elemento.nextElementSibling;
+        const textoOriginal = botao.innerHTML;
+        botao.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+        setTimeout(() => {
+            botao.innerHTML = textoOriginal;
+        }, 2000);
+    }).catch(err => {
+        console.error('Erro ao copiar: ', err);
+        alert('Não foi possível copiar. Copie manualmente: ' + texto);
+    });
+}

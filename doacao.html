@@ -350,6 +350,152 @@
             text-decoration: none;
         }
 
+        /* ===== ESTILOS PARA CUPONS ===== */
+        .cupons-section {
+            margin: 3rem 0;
+        }
+
+        .cupons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .cupom-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .cupom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .cupom-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .cupom-logo {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 2px dashed #ddd;
+        }
+
+        .cupom-logo i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .cupom-logo span {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+
+        .cupom-valor {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            padding: 1rem 0 0.5rem;
+        }
+
+        .cupom-descricao {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .cupom-codigo {
+            background: var(--light-color);
+            margin: 1rem;
+            padding: 0.8rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #e0e0e0;
+        }
+
+        .cupom-codigo span {
+            font-family: monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--dark-color);
+        }
+
+        .btn-copiar-cupom {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .btn-copiar-cupom:hover {
+            background: #e09600;
+            transform: scale(1.05);
+        }
+
+        .cupom-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .cupom-info i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        .cupom-footer {
+            background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .cupom-footer i {
+            color: var(--primary-color);
+            margin-right: 0.3rem;
+        }
+
+        /* Cores específicas para cada cupom */
+        .cupom-zeenow .cupom-logo {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8d4 100%);
+        }
+
+        .cupom-petz .cupom-logo {
+            background: linear-gradient(135deg, #e6f0ff 0%, #d4e4ff 100%);
+        }
+
         /* Responsividade */
         @media (max-width: 768px) {
             .doacao-header h1 {
@@ -366,6 +512,22 @@
             
             .pontos-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .cupons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cupom-card {
+                max-width: 100%;
+            }
+            
+            .cupom-valor {
+                font-size: 2rem;
+            }
+            
+            .cupom-codigo span {
+                font-size: 1rem;
             }
         }
     </style>
@@ -795,6 +957,75 @@
                 </div>
             </div>
 
+            <!-- ===== SEÇÃO DE CUPONS DE DESCONTO ===== -->
+            <div class="cupons-section">
+                <div class="bancario-header">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h2>Cupons de Desconto</h2>
+                </div>
+                <p style="text-align: center; margin-bottom: 2rem; color: var(--text-light);">
+                    Use nossos cupons e ajude os doguinhos do abrigo enquanto cuida do seu pet! 🐕💛
+                </p>
+                
+                <div class="cupons-grid">
+                    <!-- CUPOM 1 - ZEE.NOW (Primeira compra) -->
+                    <div class="cupom-card cupom-zeenow">
+                        <div class="cupom-badge">Primeira Compra</div>
+                        <div class="cupom-logo">
+                            <i class="fas fa-dog"></i>
+                            <span>zee.NOW</span>
+                        </div>
+                        <div class="cupom-valor">R$25</div>
+                        <div class="cupom-descricao">de desconto na primeira compra</div>
+                        <div class="cupom-codigo">
+                            <span id="cupom-zeenow">SEUALBERTO</span>
+                            <button class="btn-copiar-cupom" onclick="copiarCupom('cupom-zeenow')">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        <div class="cupom-info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Valor mínimo da compra: R$65</span>
+                        </div>
+                        <div class="cupom-info">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Válido no app zee.now</span>
+                        </div>
+                        <div class="cupom-footer">
+                            <i class="fas fa-truck"></i> Entrega em minutos • Todos os dias
+                        </div>
+                    </div>
+
+                    <!-- CUPOM 2 - PETZ (10% em todas as compras) -->
+                    <div class="cupom-card cupom-petz">
+                        <div class="cupom-badge">Ilimitado</div>
+                        <div class="cupom-logo">
+                            <i class="fas fa-store"></i>
+                            <span>Petz</span>
+                        </div>
+                        <div class="cupom-valor">10% OFF</div>
+                        <div class="cupom-descricao">em todas as compras</div>
+                        <div class="cupom-codigo">
+                            <span id="cupom-petz">SEUALBERTO</span>
+                            <button class="btn-copiar-cupom" onclick="copiarCupom('cupom-petz')">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        <div class="cupom-info">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Válido para qualquer item</span>
+                        </div>
+                        <div class="cupom-info">
+                            <i class="fas fa-store"></i>
+                            <span>Retire na loja ou receba em casa</span>
+                        </div>
+                        <div class="cupom-footer">
+                            <i class="fas fa-heart"></i> Cada compra ajuda os doguinhos resgatados!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- PONTOS DE ARRECADAÇÃO -->
             <div class="pontos-section">
                 <div class="bancario-header">
@@ -915,6 +1146,24 @@
         function copiarPerfilPicPay() {
             navigator.clipboard.writeText('@abrigodeseualberto');
             alert('Perfil do PicPay copiado: @abrigodeseualberto');
+        }
+
+        // Função para copiar cupom
+        function copiarCupom(idElemento) {
+            const elemento = document.getElementById(idElemento);
+            const texto = elemento.textContent;
+            
+            navigator.clipboard.writeText(texto).then(() => {
+                const botao = elemento.nextElementSibling;
+                const textoOriginal = botao.innerHTML;
+                botao.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                setTimeout(() => {
+                    botao.innerHTML = textoOriginal;
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar: ', err);
+                alert('Não foi possível copiar. Copie manualmente: ' + texto);
+            });
         }
 
         function perguntarCamisa() {
