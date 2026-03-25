@@ -809,6 +809,135 @@ footer {
 .cao-card:nth-child(5) { animation-delay: 0.5s; }
 .cao-card:nth-child(6) { animation-delay: 0.6s; }
 
+/* ===== ESTILOS PARA CUPONS ===== */
+.cupons-section {
+    margin: 3rem 0;
+}
+
+.cupons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.cupom-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.cupom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.cupom-logo {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 2px dashed #ddd;
+    position: relative;
+}
+
+.cupom-logo-img {
+    max-width: 120px;
+    max-height: 60px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+.cupom-valor {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    padding: 1rem 0 0.5rem;
+}
+
+.cupom-descricao {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.cupom-codigo {
+    background: var(--light-color);
+    margin: 1rem;
+    padding: 0.8rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #e0e0e0;
+}
+
+.cupom-codigo span {
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--dark-color);
+}
+
+.btn-copiar-cupom {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+.btn-copiar-cupom:hover {
+    background: #e09600;
+    transform: scale(1.05);
+}
+
+.cupom-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.cupom-info i {
+    color: var(--primary-color);
+    width: 20px;
+}
+
+.cupom-footer {
+    background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.cupom-footer i {
+    color: var(--primary-color);
+    margin-right: 0.3rem;
+}
+
+/* Cores específicas para cada cupom */
+.cupom-zeenow .cupom-logo {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe8d4 100%);
+}
+
+.cupom-petz .cupom-logo {
+    background: linear-gradient(135deg, #e6f0ff 0%, #d4e4ff 100%);
+}
+
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
     .navbar {
@@ -1046,6 +1175,28 @@ footer {
         flex-wrap: wrap;
         justify-content: center;
     }
+    
+    /* ===== AJUSTE PARA CUPONS NO CELULAR ===== */
+    .cupons-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cupom-card {
+        max-width: 100%;
+    }
+    
+    .cupom-valor {
+        font-size: 2rem;
+    }
+    
+    .cupom-codigo span {
+        font-size: 1rem;
+    }
+    
+    .cupom-logo-img {
+        max-width: 100px;
+        max-height: 50px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1134,5 +1285,24 @@ footer {
         width: 45px;
         height: 45px;
         font-size: 1.2rem;
+    }
+    
+    /* ===== AJUSTE PARA CUPONS EM CELULAR PEQUENO ===== */
+    .cupom-logo-img {
+        max-width: 80px;
+        max-height: 40px;
+    }
+    
+    .cupom-valor {
+        font-size: 1.8rem;
+    }
+    
+    .cupom-codigo span {
+        font-size: 0.9rem;
+    }
+    
+    .btn-copiar-cupom {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.75rem;
     }
 }
