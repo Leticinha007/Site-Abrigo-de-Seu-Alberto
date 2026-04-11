@@ -884,20 +884,6 @@ const caes = [
     },
     {
         id: 53,
-        nome: "Stela",
-        idade: "3 anos",
-        porte: "Porte Pequeno",
-        sexo: "Fêmea",
-        personalidade: "Energética e brincalhona",
-        historia: "Oi, eu sou a Stela! Tenho 3 anos, sou de porte pequeno, mas não se engane… eu tenho energia de sobra! Sou super dócil, adoro carinho e amo brincar. Me dou muito bem com outros cães e posso passar o dia inteiro correndo, pulando e me divertindo. Brincar é praticamente meu esporte favorito! Sou castrada, vacinada e vermifugada, pronta para levar alegria para uma família que tenha espaço no coração (e disposição!) para acompanhar meu ritmo.",
-        imagem: "imagens/Stella.jpg",
-        tags: ["Castrada", "Vacinada", "Vermifugada"],
-        destaque: false,
-        paraAdocao: true,
-        paraApadrinhamento: true
-    },
-    {
-        id: 54,
         nome: "Suape",
         idade: "6 anos",
         porte: "Porte Médio",
@@ -911,7 +897,7 @@ const caes = [
         paraApadrinhamento: true
     },
     {
-        id: 55,
+        id: 54,
         nome: "Summer",
         idade: "5 anos",
         porte: "Porte Grande",
@@ -925,7 +911,7 @@ const caes = [
         paraApadrinhamento: true
     },
     {
-        id: 56,
+        id: 55,
         nome: "Théo",
         idade: "3 anos",
         porte: "Porte Médio",
@@ -939,7 +925,7 @@ const caes = [
         paraApadrinhamento: true
     },
     {
-        id: 57,
+        id: 56,
         nome: "Tigrão",
         idade: "3 anos",
         porte: "Porte Médio",
@@ -953,7 +939,7 @@ const caes = [
         paraApadrinhamento: true
     },
     {
-        id: 58,
+        id: 57,
         nome: "Tobias",
         idade: "15/01/2026",
         porte: "Filhote",
@@ -967,7 +953,7 @@ const caes = [
         paraApadrinhamento: true
     },
     {
-        id: 59,
+        id: 58,
         nome: "Vicky",
         idade: "8 anos",
         porte: "Porte Médio",
@@ -981,7 +967,7 @@ const caes = [
         paraApadrinhamento: true
     },
     {
-        id: 60,
+        id: 59,
         nome: "Wagner",
         idade: "15/01/2026",
         porte: "Filhote",
@@ -995,7 +981,7 @@ const caes = [
         paraApadrinhamento: true
     },
     {
-        id: 61,
+        id: 60,
         nome: "Will",
         idade: "5 anos",
         porte: "Porte Médio",
@@ -1009,7 +995,7 @@ const caes = [
         paraApadrinhamento: true
     },
     {
-        id: 62,
+        id: 61,
         nome: "Xuxa",
         idade: "8 anos",
         porte: "Porte Grande",
@@ -1023,7 +1009,7 @@ const caes = [
         paraApadrinhamento: true
     },
     {
-        id: 63,
+        id: 62,
         nome: "Laika",
         idade: "5 anos",
         porte: "Porte Médio",
