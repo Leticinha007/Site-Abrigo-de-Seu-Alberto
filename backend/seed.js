@@ -151,6 +151,8 @@ async function seed() {
       (62,'Castrada'),(62,'Vacinada'),(62,'Vermifugada')
     `);
 
+    await client.query("SELECT setval('dogs_id_seq', (SELECT MAX(id) FROM dogs))");
+
     console.log('Banco populado com sucesso!');
   } catch (err) {
     console.error('Erro:', err.message);
