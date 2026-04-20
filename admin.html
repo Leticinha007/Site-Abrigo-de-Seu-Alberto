@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Abrigo de Seu Alberto</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #2c7a4b;
+            color: white;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        header h1 { font-size: 1.2rem; }
+
+        .container { max-width: 960px; margin: 32px auto; padding: 0 16px; }
+
+        /* LOGIN */
+        #tela-login {
+            max-width: 360px;
+            margin: 80px auto;
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        #tela-login h2 { margin-bottom: 24px; color: #2c7a4b; }
+
+        #tela-login input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        #tela-login button {
+            width: 100%;
+            padding: 10px;
+            background: #2c7a4b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        #tela-login button:hover { background: #235f3a; }
+        #erro-login { color: #c0392b; margin-top: 10px; font-size: 0.9rem; }
+
+        /* ADMIN */
+        #tela-admin { display: none; }
+
+        .secao {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+        }
+
+        .secao h2 {
+            font-size: 1.1rem;
+            color: #2c7a4b;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8f5ee;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .form-grid .full { grid-column: 1 / -1; }
+
+        label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 4px; color: #555; }
+
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea { resize: vertical; min-height: 80px; }
+
+        .checkboxes { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 4px; }
+        .checkboxes label { font-weight: normal; display: flex; align-items: center; gap: 6px; cursor: pointer; }
+
+        .btn-salvar {
+            margin-top: 16px;
+            padding: 10px 24px;
+            background: #2c7a4b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-salvar:hover { background: #235f3a; }
+
+        #msg-form {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .msg-ok { background: #d4edda; color: #155724; }
+        .msg-erro { background: #f8d7da; color: #721c24; }
+
+        /* LISTA */
+        .barra-busca {
+            margin-bottom: 16px;
+        }
+
+        .barra-busca input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th { background: #f0f0f0; padding: 10px 12px; text-align: left; font-weight: bold; }
+        td { padding: 10px 12px; border-bottom: 1px solid #eee; vertical-align: middle; }
+        tr:hover td { background: #fafafa; }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .badge-sim { background: #d4edda; color: #155724; }
+        .badge-nao { background: #f8d7da; color: #721c24; }
+
+        .btn-editar {
+            padding: 4px 10px;
+            background: #f0ad4e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-right: 4px;
+        }
+
+        .btn-remover {
+            padding: 4px 10px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .btn-editar:hover { background: #d9903a; }
+        .btn-remover:hover { background: #c0392b; }
+
+        #total-caes { font-size: 0.85rem; color: #888; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="tela-login">
+    <h2>Admin — Abrigo de Seu Alberto</h2>
+    <input type="password" id="input-chave" placeholder="Chave secreta" />
+    <button onclick="entrar()">Entrar</button>
+    <p id="erro-login"></p>
+</div>
+
+<!-- PAINEL ADMIN -->
+<div id="tela-admin">
+    <header>
+        <h1>Painel Admin — Abrigo de Seu Alberto</h1>
+    </header>
+
+    <div class="container">
+
+        <!-- FORMULÁRIO ADICIONAR / EDITAR -->
+        <div class="secao">
+            <h2 id="titulo-form">Adicionar novo cão</h2>
+            <input type="hidden" id="campo-id" />
+            <div class="form-grid">
+                <div>
+                    <label>Nome *</label>
+                    <input type="text" id="campo-nome" placeholder="Ex: Rex" />
+                </div>
+                <div>
+                    <label>Idade *</label>
+                    <input type="text" id="campo-idade" placeholder="Ex: 2 anos" />
+                </div>
+                <div>
+                    <label>Porte *</label>
+                    <select id="campo-porte">
+                        <option value="">Selecione</option>
+                        <option>Filhote</option>
+                        <option>Porte Pequeno</option>
+                        <option>Porte Médio</option>
+                        <option>Porte Grande</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Sexo *</label>
+                    <select id="campo-sexo">
+                        <option value="">Selecione</option>
+                        <option>Macho</option>
+                        <option>Fêmea</option>
+                    </select>
+                </div>
+                <div class="full">
+                    <label>Personalidade</label>
+                    <input type="text" id="campo-personalidade" placeholder="Ex: Dócil e brincalhão" />
+                </div>
+                <div class="full">
+                    <label>Imagem (caminho)</label>
+                    <input type="text" id="campo-imagem" placeholder="imagens/NomeDoCao.jpeg" />
+                </div>
+                <div class="full">
+                    <label>História</label>
+                    <textarea id="campo-historia" placeholder="Oi, eu sou o Rex..."></textarea>
+                </div>
+                <div class="full">
+                    <label>Opções</label>
+                    <div class="checkboxes">
+                        <label><input type="checkbox" id="campo-adocao" /> Disponível para adoção</label>
+                        <label><input type="checkbox" id="campo-apadrinhamento" checked /> Disponível para apadrinhamento</label>
+                        <label><input type="checkbox" id="campo-destaque" /> Destaque na home</label>
+                    </div>
+                </div>
+                <div class="full">
+                    <label>Tags</label>
+                    <div class="checkboxes">
+                        <label><input type="checkbox" id="tag-castrado" value="Castrado" /> Castrado(a)</label>
+                        <label><input type="checkbox" id="tag-vacinado" value="Vacinado" /> Vacinado(a)</label>
+                        <label><input type="checkbox" id="tag-vermifugado" value="Vermifugado" /> Vermifugado(a)</label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-salvar" onclick="salvarCao()">Salvar</button>
+            <button id="btn-cancelar-edicao" class="btn-salvar" style="background:#888;display:none;margin-left:8px" onclick="cancelarEdicao()">Cancelar</button>
+            <div id="msg-form"></div>
+        </div>
+
+        <!-- LISTA DE CÃES -->
+        <div class="secao">
+            <h2>Cães cadastrados</h2>
+            <div class="barra-busca">
+                <input type="text" id="busca" placeholder="Buscar por nome..." oninput="filtrarTabela()" />
+            </div>
+            <p id="total-caes"></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Porte</th>
+                        <th>Sexo</th>
+                        <th>Adoção</th>
+                        <th>Apadrinhamento</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-caes"></tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const API_URL = 'https://site-abrigo-de-seu-alberto-1.onrender.com';
+    let adminKey = '';
+    let todosCaes = [];
+
+    function entrar() {
+        const chave = document.getElementById('input-chave').value.trim();
+        if (!chave) return;
+        adminKey = chave;
+        carregarCaes();
+    }
+
+    document.getElementById('input-chave').addEventListener('keydown', e => {
+        if (e.key === 'Enter') entrar();
+    });
+
+    async function carregarCaes() {
+        try {
+            const res = await fetch(`${API_URL}/api/caes`);
+            todosCaes = await res.json();
+
+            // Testa se a chave é válida tentando um endpoint protegido
+            const teste = await fetch(`${API_URL}/api/caes/0`, {
+                method: 'DELETE',
+                headers: { 'x-admin-key': adminKey }
+            });
+
+            if (teste.status === 401) {
+                document.getElementById('erro-login').textContent = 'Chave incorreta.';
+                adminKey = '';
+                return;
+            }
+
+            document.getElementById('tela-login').style.display = 'none';
+            document.getElementById('tela-admin').style.display = 'block';
+            renderizarTabela(todosCaes);
+        } catch {
+            document.getElementById('erro-login').textContent = 'Erro ao conectar à API.';
+        }
+    }
+
+    function renderizarTabela(caes) {
+        document.getElementById('total-caes').textContent = `${caes.length} cão(ões) encontrado(s)`;
+        const tbody = document.getElementById('tabela-caes');
+        tbody.innerHTML = caes.map(cao => `
+            <tr>
+                <td><strong>${cao.nome}</strong></td>
+                <td>${cao.idade}</td>
+                <td>${cao.porte}</td>
+                <td>${cao.sexo}</td>
+                <td><span class="badge ${cao.para_adocao ? 'badge-sim' : 'badge-nao'}">${cao.para_adocao ? 'Sim' : 'Não'}</span></td>
+                <td><span class="badge ${cao.para_apadrinhamento ? 'badge-sim' : 'badge-nao'}">${cao.para_apadrinhamento ? 'Sim' : 'Não'}</span></td>
+                <td>
+                    <button class="btn-editar" onclick="editarCao(${cao.id})">Editar</button>
+                    <button class="btn-remover" onclick="removerCao(${cao.id}, '${cao.nome.replace(/'/g, "\\'")}')">Remover</button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    function filtrarTabela() {
+        const busca = document.getElementById('busca').value.toLowerCase();
+        const filtrados = todosCaes.filter(c => c.nome.toLowerCase().includes(busca));
+        renderizarTabela(filtrados);
+    }
+
+    async function salvarCao() {
+        const id = document.getElementById('campo-id').value;
+        const tags = [];
+        const sufixo = document.getElementById('campo-sexo').value === 'Fêmea' ? 'a' : 'o';
+        if (document.getElementById('tag-castrado').checked) tags.push(`Castrad${sufixo}`);
+        if (document.getElementById('tag-vacinado').checked) tags.push(`Vacinad${sufixo}`);
+        if (document.getElementById('tag-vermifugado').checked) tags.push(`Vermifugad${sufixo}`);
+
+        const dados = {
+            nome: document.getElementById('campo-nome').value.trim(),
+            idade: document.getElementById('campo-idade').value.trim(),
+            porte: document.getElementById('campo-porte').value,
+            sexo: document.getElementById('campo-sexo').value,
+            personalidade: document.getElementById('campo-personalidade').value.trim(),
+            historia: document.getElementById('campo-historia').value.trim(),
+            imagem: document.getElementById('campo-imagem').value.trim(),
+            para_adocao: document.getElementById('campo-adocao').checked,
+            para_apadrinhamento: document.getElementById('campo-apadrinhamento').checked,
+            destaque: document.getElementById('campo-destaque').checked,
+            tags
+        };
+
+        if (!dados.nome || !dados.porte || !dados.sexo) {
+            mostrarMsg('Preencha pelo menos nome, porte e sexo.', false);
+            return;
+        }
+
+        const metodo = id ? 'PUT' : 'POST';
+        const url = id ? `${API_URL}/api/caes/${id}` : `${API_URL}/api/caes`;
+
+        try {
+            const res = await fetch(url, {
+                method: metodo,
+                headers: { 'Content-Type': 'application/json', 'x-admin-key': adminKey },
+                body: JSON.stringify(dados)
+            });
+            const json = await res.json();
+
+            if (res.ok) {
+                mostrarMsg(json.mensagem, true);
+                limparForm();
+                const lista = await (await fetch(`${API_URL}/api/caes`)).json();
+                todosCaes = lista;
+                renderizarTabela(lista);
+            } else {
+                mostrarMsg(json.erro || 'Erro ao salvar.', false);
+            }
+        } catch {
+            mostrarMsg('Erro ao conectar à API.', false);
+        }
+    }
+
+    async function removerCao(id, nome) {
+        if (!confirm(`Tem certeza que deseja remover ${nome}?`)) return;
+        try {
+            const res = await fetch(`${API_URL}/api/caes/${id}`, {
+                method: 'DELETE',
+                headers: { 'x-admin-key': adminKey }
+            });
+            const json = await res.json();
+            if (res.ok) {
+                todosCaes = todosCaes.filter(c => c.id !== id);
+                renderizarTabela(todosCaes);
+                mostrarMsg(json.mensagem, true);
+            } else {
+                mostrarMsg(json.erro || 'Erro ao remover.', false);
+            }
+        } catch {
+            mostrarMsg('Erro ao conectar à API.', false);
+        }
+    }
+
+    function editarCao(id) {
+        const cao = todosCaes.find(c => c.id === id);
+        if (!cao) return;
+
+        document.getElementById('titulo-form').textContent = `Editando: ${cao.nome}`;
+        document.getElementById('campo-id').value = cao.id;
+        document.getElementById('campo-nome').value = cao.nome;
+        document.getElementById('campo-idade').value = cao.idade;
+        document.getElementById('campo-porte').value = cao.porte;
+        document.getElementById('campo-sexo').value = cao.sexo;
+        document.getElementById('campo-personalidade').value = cao.personalidade || '';
+        document.getElementById('campo-historia').value = cao.historia || '';
+        document.getElementById('campo-imagem').value = cao.imagem || '';
+        document.getElementById('campo-adocao').checked = cao.para_adocao;
+        document.getElementById('campo-apadrinhamento').checked = cao.para_apadrinhamento;
+        document.getElementById('campo-destaque').checked = cao.destaque;
+
+        const tags = cao.tags || [];
+        document.getElementById('tag-castrado').checked = tags.some(t => t.toLowerCase().startsWith('castrad'));
+        document.getElementById('tag-vacinado').checked = tags.some(t => t.toLowerCase().startsWith('vacinad'));
+        document.getElementById('tag-vermifugado').checked = tags.some(t => t.toLowerCase().startsWith('vermifugad'));
+
+        document.getElementById('btn-cancelar-edicao').style.display = 'inline-block';
+        document.querySelector('.btn-salvar').textContent = 'Salvar alterações';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function cancelarEdicao() {
+        limparForm();
+    }
+
+    function limparForm() {
+        document.getElementById('titulo-form').textContent = 'Adicionar novo cão';
+        document.getElementById('campo-id').value = '';
+        document.getElementById('campo-nome').value = '';
+        document.getElementById('campo-idade').value = '';
+        document.getElementById('campo-porte').value = '';
+        document.getElementById('campo-sexo').value = '';
+        document.getElementById('campo-personalidade').value = '';
+        document.getElementById('campo-historia').value = '';
+        document.getElementById('campo-imagem').value = '';
+        document.getElementById('campo-adocao').checked = false;
+        document.getElementById('campo-apadrinhamento').checked = true;
+        document.getElementById('campo-destaque').checked = false;
+        document.getElementById('tag-castrado').checked = false;
+        document.getElementById('tag-vacinado').checked = false;
+        document.getElementById('tag-vermifugado').checked = false;
+        document.getElementById('btn-cancelar-edicao').style.display = 'none';
+        document.querySelector('.btn-salvar').textContent = 'Salvar';
+    }
+
+    function mostrarMsg(texto, sucesso) {
+        const el = document.getElementById('msg-form');
+        el.textContent = texto;
+        el.className = sucesso ? 'msg-ok' : 'msg-erro';
+        el.style.display = 'block';
+        setTimeout(() => el.style.display = 'none', 4000);
+    }
+</script>
+</body>
+</html>
