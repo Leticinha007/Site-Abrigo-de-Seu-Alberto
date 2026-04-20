@@ -152,8 +152,28 @@ function enviarWhatsAppContato(event) {
     }, 1000);
 }
 
+// URL da API — preencha após fazer o deploy do backend (ex: https://seu-app.onrender.com)
+const API_URL = '';
+
+async function carregarDadosApi() {
+    if (!API_URL) return;
+    try {
+        const res = await fetch(`${API_URL}/api/caes`, { signal: AbortSignal.timeout(3000) });
+        if (!res.ok) throw new Error('API indisponível');
+        const dados = await res.json();
+        caes = dados.map(cao => ({
+            ...cao,
+            paraAdocao: cao.para_adocao,
+            paraApadrinhamento: cao.para_apadrinhamento,
+            tags: cao.tags || []
+        }));
+    } catch {
+        // API indisponível — o array estático abaixo será usado automaticamente
+    }
+}
+
 // ========== BANCO DE DADOS DOS CÃES ==========
-const caes = [
+let caes = [
     {
         id: 1,
         nome: "Agnes",
@@ -1401,7 +1421,8 @@ function initModalApadrinhamento() {
 }
 
 // ========== INICIALIZAÇÃO ==========
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await carregarDadosApi();
     atualizarCopyright();
     atualizarAnosHistoria();
     carregarDestaques();
