@@ -5,24 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin — Abrigo de Seu Alberto</title>
     <style>
+        :root {
+            --primary: #f9a826;
+            --primary-dark: #e09520;
+            --dark: #2c3e50;
+            --teal: #4ecdc4;
+            --light: #f7f9fc;
+            --text: #333;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --radius: 10px;
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light);
+            color: var(--text);
         }
 
         header {
-            background: #2c7a4b;
+            background: var(--dark);
             color: white;
             padding: 16px 24px;
             display: flex;
             align-items: center;
             gap: 12px;
+            box-shadow: var(--shadow);
         }
 
         header h1 { font-size: 1.2rem; }
+        header span { color: var(--primary); font-weight: bold; }
 
         .container { max-width: 960px; margin: 32px auto; padding: 0 16px; }
 
@@ -32,53 +45,60 @@
             margin: 80px auto;
             background: white;
             padding: 32px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             text-align: center;
         }
 
-        #tela-login h2 { margin-bottom: 24px; color: #2c7a4b; }
+        #tela-login h2 { margin-bottom: 8px; color: var(--dark); }
+        #tela-login p { color: #888; font-size: 0.9rem; margin-bottom: 24px; }
 
         #tela-login input {
             width: 100%;
             padding: 10px 12px;
-            border: 1px solid #ccc;
+            border: 2px solid #ddd;
             border-radius: 6px;
             font-size: 1rem;
             margin-bottom: 12px;
+            font-family: inherit;
+            transition: border-color 0.2s;
         }
+
+        #tela-login input:focus { outline: none; border-color: var(--primary); }
 
         #tela-login button {
             width: 100%;
-            padding: 10px;
-            background: #2c7a4b;
+            padding: 11px;
+            background: var(--primary);
             color: white;
             border: none;
             border-radius: 6px;
             font-size: 1rem;
             cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
         }
 
-        #tela-login button:hover { background: #235f3a; }
-        #erro-login { color: #c0392b; margin-top: 10px; font-size: 0.9rem; }
+        #tela-login button:hover { background: var(--primary-dark); }
+                #erro-login { color: #c0392b; margin-top: 10px; font-size: 0.9rem; }
 
         /* ADMIN */
         #tela-admin { display: none; }
 
         .secao {
             background: white;
-            border-radius: 8px;
+            border-radius: var(--radius);
             padding: 24px;
             margin-bottom: 32px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+            box-shadow: var(--shadow);
         }
 
         .secao h2 {
             font-size: 1.1rem;
-            color: #2c7a4b;
+            color: var(--dark);
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #e8f5ee;
+            border-bottom: 3px solid var(--primary);
         }
 
         .form-grid {
@@ -94,10 +114,16 @@
         input[type="text"], select, textarea {
             width: 100%;
             padding: 8px 10px;
-            border: 1px solid #ccc;
+            border: 2px solid #ddd;
             border-radius: 6px;
             font-size: 0.95rem;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
         }
 
         textarea { resize: vertical; min-height: 80px; }
@@ -108,15 +134,17 @@
         .btn-salvar {
             margin-top: 16px;
             padding: 10px 24px;
-            background: #2c7a4b;
+            background: var(--primary);
             color: white;
             border: none;
             border-radius: 6px;
             font-size: 1rem;
             cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
         }
 
-        .btn-salvar:hover { background: #235f3a; }
+        .btn-salvar:hover { background: var(--primary-dark); }
 
         #msg-form {
             margin-top: 12px;
@@ -143,7 +171,7 @@
         }
 
         table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-        th { background: #f0f0f0; padding: 10px 12px; text-align: left; font-weight: bold; }
+        th { background: var(--dark); color: white; padding: 10px 12px; text-align: left; font-weight: bold; }
         td { padding: 10px 12px; border-bottom: 1px solid #eee; vertical-align: middle; }
         tr:hover td { background: #fafafa; }
 
@@ -160,13 +188,15 @@
 
         .btn-editar {
             padding: 4px 10px;
-            background: #f0ad4e;
+            background: var(--teal);
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 0.8rem;
             margin-right: 4px;
+            font-weight: bold;
+            transition: opacity 0.2s;
         }
 
         .btn-remover {
@@ -177,10 +207,11 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 0.8rem;
+            font-weight: bold;
+            transition: opacity 0.2s;
         }
 
-        .btn-editar:hover { background: #d9903a; }
-        .btn-remover:hover { background: #c0392b; }
+        .btn-editar:hover, .btn-remover:hover { opacity: 0.85; }
 
         #total-caes { font-size: 0.85rem; color: #888; margin-bottom: 12px; }
     </style>
@@ -189,7 +220,8 @@
 
 <!-- LOGIN -->
 <div id="tela-login">
-    <h2>Admin — Abrigo de Seu Alberto</h2>
+    <h2>Abrigo de Seu Alberto</h2>
+    <p>Digite a chave secreta para acessar o painel</p>
     <input type="password" id="input-chave" placeholder="Chave secreta" />
     <button onclick="entrar()">Entrar</button>
     <p id="erro-login"></p>
@@ -198,7 +230,7 @@
 <!-- PAINEL ADMIN -->
 <div id="tela-admin">
     <header>
-        <h1>Painel Admin — Abrigo de Seu Alberto</h1>
+        <h1>Painel Admin — <span>Abrigo de Seu Alberto</span></h1>
     </header>
 
     <div class="container">
