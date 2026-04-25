@@ -1253,9 +1253,23 @@ body,
 }
 
 /* ===== MODO ESCURO ===== */
+
+/* Sobrescreve variáveis CSS globais — resolve a maioria dos textos/fundos de uma vez */
+[data-theme="dark"] {
+    --dark-color: #e2e8f0;
+    --light-color: #1e293b;
+    --text-color: #e2e8f0;
+    --text-light: #94a3b8;
+}
+
 [data-theme="dark"] body {
     background: #0f172a;
     color: #e2e8f0;
+}
+
+/* Footer usa --dark-color como fundo; com a variável alterada precisa de fix */
+[data-theme="dark"] footer {
+    background: #0f172a;
 }
 
 [data-theme="dark"] .navbar {
@@ -1506,6 +1520,59 @@ body,
 
 [data-theme="dark"] .ponto-item {
     background: #1e293b !important;
+}
+
+/* Elementos com background: white hardcoded — não cobertos pela variável */
+[data-theme="dark"] .bancario-section {
+    background: #1e293b !important;
+}
+
+[data-theme="dark"] .pontos-section {
+    background: #1e293b !important;
+}
+
+[data-theme="dark"] .banco-card .chave-pix {
+    background: #0f172a !important;
+}
+
+[data-theme="dark"] .marca-tag {
+    background: #334155 !important;
+    border-color: #475569 !important;
+    color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .produto-item {
+    background: #334155 !important;
+    color: #e2e8f0;
+}
+
+/* sobre.html — elementos com inline style ou cor hardcoded */
+[data-theme="dark"] .porque-adotar {
+    background: #0f172a !important;
+}
+
+[data-theme="dark"] .historia-imagem p {
+    color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .timeline-content h3,
+[data-theme="dark"] .timeline-content h4,
+[data-theme="dark"] .timeline-content p,
+[data-theme="dark"] .timeline-content span:not(.timeline-year) {
+    color: #e2e8f0 !important;
+}
+
+/* contato.html — inputs com borda hardcoded */
+[data-theme="dark"] .contato-form input,
+[data-theme="dark"] .contato-form select,
+[data-theme="dark"] .contato-form textarea {
+    background: #162032 !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .contato-form label {
+    color: #e2e8f0 !important;
 }
 
 @media (max-width: 480px) {
