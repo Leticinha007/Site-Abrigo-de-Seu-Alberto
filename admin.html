@@ -214,6 +214,23 @@
         .btn-editar:hover, .btn-remover:hover { opacity: 0.85; }
 
         #total-caes { font-size: 0.85rem; color: #888; margin-bottom: 12px; }
+
+        .upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .upload-area:hover { border-color: var(--primary); background: #fffbf0; }
+        .upload-area.carregando { border-color: var(--teal); background: #f0fffe; }
+        .upload-area.sucesso { border-color: #27ae60; background: #f0fff4; }
     </style>
 </head>
 <body>
@@ -271,8 +288,14 @@
                     <input type="text" id="campo-personalidade" placeholder="Ex: Dócil e brincalhão" />
                 </div>
                 <div class="full">
-                    <label>Imagem (caminho)</label>
-                    <input type="text" id="campo-imagem" placeholder="imagens/NomeDoCao.jpeg" />
+                    <label>Foto do cão</label>
+                    <div class="upload-area" id="upload-area" onclick="document.getElementById('campo-arquivo').click()">
+                        <img id="preview-imagem" src="" alt="" style="display:none; max-height:160px; border-radius:8px; margin-bottom:8px;" />
+                        <p id="upload-texto">Clique para escolher uma foto da galeria</p>
+                        <p id="upload-status" style="font-size:0.8rem; color:#888;"></p>
+                    </div>
+                    <input type="file" id="campo-arquivo" accept="image/*" style="display:none" onchange="uploadImagem(this)" />
+                    <input type="hidden" id="campo-imagem" />
                 </div>
                 <div class="full">
                     <label>História</label>
@@ -328,6 +351,45 @@
 
 <script>
     const API_URL = 'https://site-abrigo-de-seu-alberto-1.onrender.com';
+    const CLOUDINARY_CLOUD = 'dyxcrjjfo';
+    const CLOUDINARY_PRESET = 'boijxzck';
+
+    async function uploadImagem(input) {
+        const arquivo = input.files[0];
+        if (!arquivo) return;
+
+        const area = document.getElementById('upload-area');
+        const status = document.getElementById('upload-status');
+        const preview = document.getElementById('preview-imagem');
+        const texto = document.getElementById('upload-texto');
+
+        area.className = 'upload-area carregando';
+        status.textContent = 'Enviando foto...';
+        texto.textContent = '';
+
+        const formData = new FormData();
+        formData.append('file', arquivo);
+        formData.append('upload_preset', CLOUDINARY_PRESET);
+
+        try {
+            const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/image/upload`, {
+                method: 'POST',
+                body: formData
+            });
+            const dados = await res.json();
+
+            document.getElementById('campo-imagem').value = dados.secure_url;
+            preview.src = dados.secure_url;
+            preview.style.display = 'block';
+            area.className = 'upload-area sucesso';
+            status.textContent = '✓ Foto enviada com sucesso!';
+            texto.textContent = 'Clique para trocar a foto';
+        } catch {
+            area.className = 'upload-area';
+            status.textContent = 'Erro ao enviar foto. Tente novamente.';
+            texto.textContent = 'Clique para escolher uma foto da galeria';
+        }
+    }
     let adminKey = '';
     let todosCaes = [];
 
@@ -477,6 +539,13 @@
         document.getElementById('campo-personalidade').value = cao.personalidade || '';
         document.getElementById('campo-historia').value = cao.historia || '';
         document.getElementById('campo-imagem').value = cao.imagem || '';
+        const preview = document.getElementById('preview-imagem');
+        if (cao.imagem) {
+            preview.src = cao.imagem;
+            preview.style.display = 'block';
+            document.getElementById('upload-texto').textContent = 'Clique para trocar a foto';
+            document.getElementById('upload-area').className = 'upload-area sucesso';
+        }
         document.getElementById('campo-adocao').checked = cao.para_adocao;
         document.getElementById('campo-apadrinhamento').checked = cao.para_apadrinhamento;
         document.getElementById('campo-destaque').checked = cao.destaque;
