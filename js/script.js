@@ -152,8 +152,7 @@ function enviarWhatsAppContato(event) {
     }, 1000);
 }
 
-// URL da API — preencha após fazer o deploy do backend (ex: https://seu-app.onrender.com)
-const API_URL = 'https://site-abrigo-de-seu-alberto-1.onrender.com';
+const API_URL = '';
 
 async function carregarDadosApi() {
     if (!API_URL) return;
