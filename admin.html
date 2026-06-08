@@ -379,6 +379,8 @@
             });
             const dados = await res.json();
 
+            if (!dados.secure_url) throw new Error('URL não retornada pelo Cloudinary');
+
             document.getElementById('campo-imagem').value = dados.secure_url;
             preview.src = dados.secure_url;
             preview.style.display = 'block';
