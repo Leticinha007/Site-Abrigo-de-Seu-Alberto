@@ -155,7 +155,6 @@ function enviarWhatsAppContato(event) {
 const API_URL = '';
 
 async function carregarDadosApi() {
-    if (!API_URL) return;
     try {
         const res = await fetch(`${API_URL}/api/caes`, { signal: AbortSignal.timeout(3000) });
         if (!res.ok) throw new Error('API indisponível');
